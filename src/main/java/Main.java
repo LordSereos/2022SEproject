@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
+        ReadFromJSON data = new ReadFromJSON();
+        data.readPoints("./JSON_files/Data.json");
+
         RectangleCoordinates roof = new RectangleCoordinates();
 
         roof.findCordinates("C6", "C5", "C1");
@@ -15,7 +18,5 @@ public class Main {
         roof.printZoneOne();
         roof.printZoneTwo();
         roof.printZoneThree();
-
-
     }
 }
