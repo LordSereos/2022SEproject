@@ -59,7 +59,7 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
-    public static void NotMain(String[] args) {
+    public void NotMain(String[] args) {
 
 
 
