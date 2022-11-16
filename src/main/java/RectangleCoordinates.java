@@ -98,6 +98,20 @@ public class RectangleCoordinates {
 
     private void putCoordinatesIntoZoneTwo(String mainCoordinateName, String relativeCoordinateName1, String relativeCoordinateName2,
                                            RectangleCoordinates t1, RectangleCoordinates t2, RectangleCoordinates t4) {
+
+        String zoneTwoPointName4 = mainCoordinateName + "ZoneTwo";
+
+        if (!(zoneTwo.containsKey(zoneTwoPointName4))) {
+            zoneTwo.put(zoneTwoPointName4, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateY(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
+        } else {
+            zoneTwoPointName4 = mainCoordinateName + "ZoneTwoOtherSide";
+            zoneTwo.put(zoneTwoPointName4, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateY(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
+        }
+
         String zoneTwoPointName1 = mainCoordinateName + relativeCoordinateName1 + "ZoneTwo1";
         zoneTwo.put(zoneTwoPointName1, new Point(t1.borderCoordinateX(), t1.borderCoordinateY(), t1.borderCoordinateZ()));
 
