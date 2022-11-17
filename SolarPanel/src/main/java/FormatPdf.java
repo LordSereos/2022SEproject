@@ -27,23 +27,26 @@ public class FormatPdf {
             Font font = new Font();
             font.setSize(20);
             Paragraph p = new Paragraph("", font);
-            p.add("Test Image");
+            p.add("Title");
             p.setAlignment(Element.ALIGN_CENTER);
             document.add(p);
 
             //Add image
+            document.left(100);
             document.add(Image.getInstance(IMAGE_PATH));
 
+
             //Create paragraph
-            Paragraph p2 = new Paragraph("Test Text wowowowow\n" +
-                    "woooooooooow", font);
+            font.setSize(12);
+            Paragraph p2 = new Paragraph("Paragraph text\n" +
+                    "New line text", font);
 
             //Add paragraph
             document.add(p2);
 
             //close document
             document.close();
-            System.out.println("Done!");
+            System.out.println("PDF file created!");
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -6,6 +6,6 @@ public class Main {
 
         DrawLinesFromCords drawLinesFromCords = new DrawLinesFromCords();
 
-        drawLinesFromCords.NotMain(null);
+        drawLinesFromCords.Launch(null);
     }
 }
