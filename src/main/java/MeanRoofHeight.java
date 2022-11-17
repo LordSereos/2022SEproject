@@ -1,33 +1,36 @@
 public class MeanRoofHeight {
-    private double heighest = 0, lowest;
-    private ReadFromJSON data = new ReadFromJSON();
+    public final ReadFromJSON data = new ReadFromJSON();
+
     public MeanRoofHeight() {
+
     }
 
     public double getHeighestZCoordinate() {
-        for (Point value : data.readPoints().values()) {
-            if(value.getZ() > heighest)
-                heighest = value.getZ();
+        double heighest = 0;
+        for (Point value : data.getPointStorage().values()) {
+            if (value.getCoordinateZ() > heighest)
+                heighest = value.getCoordinateZ();
         }
 
         return heighest;
     }
 
     public double getLowestZCoordinate() {
-        lowest = getHeighestZCoordinate();
-        for (Point value : data.readPoints().values()) {
-            if(value.getZ() < lowest)
-                lowest = value.getZ();
+        double lowest = getHeighestZCoordinate();
+        for (Point value : data.getPointStorage().values()) {
+            if (value.getCoordinateZ() < lowest)
+                lowest = value.getCoordinateZ();
         }
 
         return lowest;
     }
+
     public double getMeanHeight() {
         return (getHeighestZCoordinate() + getLowestZCoordinate()) / 2;
     }
 
     public double getWidthOfWindZone() {
-        if(getMeanHeight() >= 3.0)
+        if (getMeanHeight() >= 3.0)
             return 0.4 * getMeanHeight();
         else
             return 3.0;

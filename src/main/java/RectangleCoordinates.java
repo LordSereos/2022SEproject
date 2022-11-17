@@ -1,18 +1,19 @@
 import java.util.HashMap;
 
-//TODO create Unit tests for this class
-//AR INCLUDINTI VISUS TASKUS??
-
 public class RectangleCoordinates {
     private double x1, y1, z1, x2, y2, z2, ratio;
     private MeanRoofHeight roofHeight = new MeanRoofHeight();
-
     private Point point = new Point();
+
     private ReadFromJSON data = new ReadFromJSON();
 
     private HashMap<String, Point> zoneOne = new HashMap<String, Point>();
     private HashMap<String, Point> zoneTwo = new HashMap<String, Point>();
     private HashMap<String, Point> zoneThree = new HashMap<String, Point>();
+
+    public RectangleCoordinates() {
+
+    }
 
     public RectangleCoordinates(double x1, double y1, double z1, double x2, double y2, double z2) {
         this.x1 = x1;
@@ -24,54 +25,51 @@ public class RectangleCoordinates {
         this.ratio = roofHeight.getWidthOfWindZone() / point.calculateDistance(x1, y1, z1, x2, y2, z2);
     }
 
-    public RectangleCoordinates() {
-    }
-
-    private double borderCoordinateX() {
+    public double borderCoordinateX() {
         return x1 + ((x2 - x1) * ratio);
     }
 
-    private double borderCoordinateY() {
-        return y1 + ((y2 - y1)  * ratio);
+    public double borderCoordinateY() {
+        return y1 + ((y2 - y1) * ratio);
     }
 
-    private double borderCoordinateZ() {
+    public double borderCoordinateZ() {
         return z1 + ((z2 - z1) * ratio);
     }
 
-    private double centerOfBorderCoordinateX() {
+    public double centerOfBorderCoordinateX() {
         return x1 + (x2 - x1) * 0.5;
     }
 
-    private double centerOfBorderCoordinateY() {
+    public double centerOfBorderCoordinateY() {
         return y1 + (y2 - y1) * 0.5;
     }
 
-    private double centerOfBorderCoordinateZ() {
+    public double centerOfBorderCoordinateZ() {
         return z1 + (z2 - z1) * 0.5;
     }
 
-    private double innerCornerCoordinateX() {
+    public double innerCornerCoordinateX() {
         return x1 + (x2 - x1) * 2;
     }
 
-    private double innerCornerCoordinateY() {
+    public double innerCornerCoordinateY() {
         return y1 + (y2 - y1) * 2;
     }
 
-    private double innerCornerCoordinateZ() {
+    public double innerCornerCoordinateZ() {
         return z1 + (z2 - z1) * 2;
     }
 
-    private RectangleCoordinates borderCoordinateSet(String mainCoordinateName, String relativeCoordinateName) {
+    public RectangleCoordinates borderCoordinateSet(String mainCoordinateName, String relativeCoordinateName) {
         RectangleCoordinates t1 = new RectangleCoordinates(
-                data.readPoints().get(mainCoordinateName).getX(), data.readPoints().get(mainCoordinateName).getY(), data.readPoints().get(mainCoordinateName).getZ(),
-                data.readPoints().get(relativeCoordinateName).getX(), data.readPoints().get(relativeCoordinateName).getY(), data.readPoints().get(relativeCoordinateName).getZ());
+                data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ(),
+                data.getPointStorage().get(relativeCoordinateName).getCoordinateX(), data.getPointStorage().get(relativeCoordinateName).getCoordinateY(), data.getPointStorage().get(relativeCoordinateName).getCoordinateZ());
 
         return t1;
     }
 
-    private RectangleCoordinates centerCoordinateSet(RectangleCoordinates borderCoordinateSet1, RectangleCoordinates borderCoordinateSet2) {
+    public RectangleCoordinates centerCoordinateSet(RectangleCoordinates borderCoordinateSet1, RectangleCoordinates borderCoordinateSet2) {
         RectangleCoordinates t3 = new RectangleCoordinates(
                 borderCoordinateSet1.borderCoordinateX(), borderCoordinateSet1.borderCoordinateY(), borderCoordinateSet1.borderCoordinateZ(),
                 borderCoordinateSet2.borderCoordinateX(), borderCoordinateSet2.borderCoordinateY(), borderCoordinateSet2.borderCoordinateZ());
@@ -79,35 +77,48 @@ public class RectangleCoordinates {
         return t3;
     }
 
-    private RectangleCoordinates innerCoordinateSet(String mainCoordinateName, RectangleCoordinates centerCoordinateSet) {
+    public RectangleCoordinates innerCoordinateSet(String mainCoordinateName, RectangleCoordinates centerCoordinateSet) {
         RectangleCoordinates t4 = new RectangleCoordinates(
-                data.readPoints().get(mainCoordinateName).getX(), data.readPoints().get(mainCoordinateName).getY(), data.readPoints().get(mainCoordinateName).getZ(),
+                data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ(),
                 centerCoordinateSet.centerOfBorderCoordinateX(), centerCoordinateSet.centerOfBorderCoordinateY(), centerCoordinateSet.centerOfBorderCoordinateZ());
 
         return t4;
     }
 
     private void putCoordinatesIntoZoneOne(String mainCoordinateName, RectangleCoordinates t4) {
-        String zoneOnePointName = mainCoordinateName + "One";
+        String zoneOnePointName = mainCoordinateName + "ZoneOne";
 
         if (!(zoneOne.containsKey(zoneOnePointName)))
             zoneOne.put(zoneOnePointName, new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
         else {
-            zoneOnePointName = mainCoordinateName + "OneOtherSide";
+            zoneOnePointName = mainCoordinateName + "ZoneOneOtherSide";
             zoneOne.put(zoneOnePointName, new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
         }
-
     }
 
     private void putCoordinatesIntoZoneTwo(String mainCoordinateName, String relativeCoordinateName1, String relativeCoordinateName2,
                                            RectangleCoordinates t1, RectangleCoordinates t2, RectangleCoordinates t4) {
-        String zoneTwoPointName1 = mainCoordinateName + relativeCoordinateName1 + "Two1";
+
+        String zoneTwoPointName4 = mainCoordinateName + "ZoneTwo";
+
+        if (!(zoneTwo.containsKey(zoneTwoPointName4))) {
+            zoneTwo.put(zoneTwoPointName4, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateY(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
+        } else {
+            zoneTwoPointName4 = mainCoordinateName + "ZoneTwoOtherSide";
+            zoneTwo.put(zoneTwoPointName4, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateY(),
+                    data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
+        }
+
+        String zoneTwoPointName1 = mainCoordinateName + relativeCoordinateName1 + "ZoneTwo1";
         zoneTwo.put(zoneTwoPointName1, new Point(t1.borderCoordinateX(), t1.borderCoordinateY(), t1.borderCoordinateZ()));
 
-        String zoneTwoPointName2 = mainCoordinateName + relativeCoordinateName2 + "Two2";
+        String zoneTwoPointName2 = mainCoordinateName + relativeCoordinateName2 + "ZoneTwo2";
         zoneTwo.put(zoneTwoPointName2, new Point(t2.borderCoordinateX(), t2.borderCoordinateY(), t2.borderCoordinateZ()));
 
-        String zoneTwoPointName3 = mainCoordinateName + relativeCoordinateName2 + "Two3";
+        String zoneTwoPointName3 = mainCoordinateName + relativeCoordinateName2 + "ZoneTwo3";
         zoneTwo.put(zoneTwoPointName3, new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
 
     }
@@ -116,19 +127,19 @@ public class RectangleCoordinates {
                                              RectangleCoordinates t1, RectangleCoordinates t2, RectangleCoordinates t4) {
 
         if (!(zoneThree.containsKey(mainCoordinateName)))
-            zoneThree.put(mainCoordinateName, new Point(data.readPoints().get(mainCoordinateName).getX(), data.readPoints().get(mainCoordinateName).getY(), data.readPoints().get(mainCoordinateName).getZ()));
+            zoneThree.put(mainCoordinateName, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
         else {
-            String zoneThreeOtherSide = mainCoordinateName + "ThreeOtherSide";
-            zoneThree.put(zoneThreeOtherSide, new Point(data.readPoints().get(mainCoordinateName).getX(), data.readPoints().get(mainCoordinateName).getY(), data.readPoints().get(mainCoordinateName).getZ()));
+            String zoneThreeOtherSide = mainCoordinateName + "ZoneThreeOtherSide";
+            zoneThree.put(zoneThreeOtherSide, new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
         }
 
-        String zoneThreePointName1 = mainCoordinateName + relativeCoordinateName1 + "Three1";
+        String zoneThreePointName1 = mainCoordinateName + relativeCoordinateName1 + "ZoneThree1";
         zoneThree.put(zoneThreePointName1, new Point(t1.borderCoordinateX(), t1.borderCoordinateY(), t1.borderCoordinateZ()));
 
-        String zoneThreePointName2 = mainCoordinateName + relativeCoordinateName2 + "Three2";
+        String zoneThreePointName2 = mainCoordinateName + relativeCoordinateName2 + "ZoneThree2";
         zoneThree.put(zoneThreePointName2, new Point(t2.borderCoordinateX(), t2.borderCoordinateY(), t2.borderCoordinateZ()));
 
-        String zoneThreePointName3 = mainCoordinateName + relativeCoordinateName2 + "Three3";
+        String zoneThreePointName3 = mainCoordinateName + relativeCoordinateName2 + "ZoneThree3";
         zoneThree.put(zoneThreePointName3, new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
     }
 
@@ -141,18 +152,15 @@ public class RectangleCoordinates {
         putCoordinatesIntoZoneOne(mainCoordinateName, t4);
         putCoordinatesIntoZoneTwo(mainCoordinateName, relativeCoordinateName1, relativeCoordinateName2, t1, t2, t4);
         putCoordinatesIntoZoneThree(mainCoordinateName, relativeCoordinateName1, relativeCoordinateName2, t1, t2, t4);
-
-
-        // TODO change generated points naming scheme to simpler one (especially for zone 2 and 3)
     }
 
     public void printZoneOne() {
         int i = 1;
         for (HashMap.Entry<String, Point> entry : zoneOne.entrySet()) {
-            System.out.println (i + ". " + entry.getKey() + ": " +
-                    entry.getValue().getX() + " " +
-                    entry.getValue().getY() + " " +
-                    entry.getValue().getZ());
+            System.out.println(i + ". " + entry.getKey() + ": " +
+                    entry.getValue().getCoordinateX() + " " +
+                    entry.getValue().getCoordinateY() + " " +
+                    entry.getValue().getCoordinateZ());
             i++;
         }
         System.out.println();
@@ -161,10 +169,10 @@ public class RectangleCoordinates {
     public void printZoneTwo() {
         int i = 1;
         for (HashMap.Entry<String, Point> entry : zoneTwo.entrySet()) {
-            System.out.println (i + ". " + entry.getKey() + ": " +
-                    entry.getValue().getX() + " " +
-                       entry.getValue().getY() + " " +
-                    entry.getValue().getZ());
+            System.out.println(i + ". " + entry.getKey() + ": " +
+                    entry.getValue().getCoordinateX() + " " +
+                    entry.getValue().getCoordinateY() + " " +
+                    entry.getValue().getCoordinateZ());
             i++;
         }
         System.out.println();
@@ -173,10 +181,10 @@ public class RectangleCoordinates {
     public void printZoneThree() {
         int i = 1;
         for (HashMap.Entry<String, Point> entry : zoneThree.entrySet()) {
-            System.out.println (i + ". " + entry.getKey() + ": " +
-                    entry.getValue().getX() + " " +
-                    entry.getValue().getY() + " " +
-                    entry.getValue().getZ());
+            System.out.println(i + ". " + entry.getKey() + ": " +
+                    entry.getValue().getCoordinateX() + " " +
+                    entry.getValue().getCoordinateY() + " " +
+                    entry.getValue().getCoordinateZ());
             i++;
         }
         System.out.println();

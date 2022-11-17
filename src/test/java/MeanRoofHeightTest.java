@@ -1,8 +1,15 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MeanRoofHeightTest {
+    @BeforeAll
+    public static void initializeDataFromJson() {
+        var data = new ReadFromJSON();
+        //specify data source
+        data.readPoints("./JSON_files/Data.json");
+    }
 
     @Test
     void meanHeightResultIsNotNegative() {
@@ -20,6 +27,7 @@ class MeanRoofHeightTest {
     void shouldReturnHighestCoordinate() {
         var meanRoofHeight = new MeanRoofHeight();
         assertEquals(29.53795144, meanRoofHeight.getHeighestZCoordinate());
+
     }
 
     @Test
@@ -29,7 +37,7 @@ class MeanRoofHeightTest {
     }
 
     @Test
-    void windZoneWidthShouldBeHigherOrEqualTo3(){
+    void windZoneWidthShouldBeHigherOrEqualTo3() {
         var meanRoofHeight = new MeanRoofHeight();
         assertTrue(meanRoofHeight.getWidthOfWindZone() >= 3.0);
     }

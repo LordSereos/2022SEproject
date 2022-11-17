@@ -1,15 +1,23 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+
+import com.google.gson.annotations.SerializedName;
 
 public class Roof {
-
-    ReadFromJSON data = new ReadFromJSON();
+    @SerializedName("Id")
     private String id;
-    private String edgeType;
-    public HashMap<String, Point> pointInfo;
+    @SerializedName("Type")
+    private String type;
+    @SerializedName("Points")
+    private ArrayList<Point> points;
 
-    public Roof(String id, String edgeType) {
+    public Roof() {
+
+    }
+
+    public Roof(String id, String type, ArrayList<Point> points) {
         this.id = id;
-        this.edgeType = edgeType;
+        this.type = type;
+        this.points = points;
     }
 
     public String getId() {
@@ -20,11 +28,20 @@ public class Roof {
         this.id = id;
     }
 
-    public String getEdgeType() {
-        return edgeType;
+    public String getType() {
+        return type;
     }
 
-    public void setEdgeType(String edgeType) {
-        this.edgeType = edgeType;
+    public void setType(String type) {
+        this.type = type;
     }
+
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(ArrayList<Point> points) {
+        this.points = points;
+    }
+
 }

@@ -1,46 +1,66 @@
-import java.lang.Math;
+import com.google.gson.annotations.SerializedName;
 
 public class Point {
-    private double x, y, z;
-    public Point(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
+    @SerializedName("Id")
+    private String id;
+    @SerializedName("CoordinateX")
+    private double coordinateX;
+    @SerializedName("CoordinateY")
+    private double coordinateY;
+    @SerializedName("CoordinateZ")
+    private double coordinateZ;
 
     public Point() {
+
     }
 
-    public double getX() {
-        return x;
+    public Point(String id, double coordinateX, double coordinateY, double coordinateZ) {
+        this.id = id;
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
+        this.coordinateZ = coordinateZ;
     }
 
-    public void setX(double x) {
-        this.x = x;
+    public Point(double coordinateX, double coordinateY, double coordinateZ) {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
+        this.coordinateZ = coordinateZ;
     }
 
-    public double getY() {
-        return y;
+    public String getId() {
+        return id;
     }
 
-    public void setY(double y) {
-        this.y = y;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public double getZ() {
-        return z;
+    public double getCoordinateX() {
+        return coordinateX;
     }
 
-    public void setZ(double z) {
-        this.z = z;
+    public void setCoordinateX(double coordinateX) {
+        this.coordinateX = coordinateX;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public double getCoordinateY() {
+        return coordinateY;
+    }
+
+    public void setCoordinateY(double coordinateY) {
+        this.coordinateY = coordinateY;
+    }
+
+    public double getCoordinateZ() {
+        return coordinateZ;
+    }
+
+    public void setCoordinateZ(double coordinateZ) {
+        this.coordinateZ = coordinateZ;
     }
 
     public double calculateDistance(double x1, double y1, double z1, double x2, double y2, double z2) {
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2) + Math.pow((z2 - z1), 2));
     }
+
 }
