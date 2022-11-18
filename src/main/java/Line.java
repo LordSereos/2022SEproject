@@ -102,7 +102,7 @@ public class Line {
         return u;
     }
 
-    public void setSetbackCoordinates(Point u){
+    public void setSetbackCoordinates(Point u) {
         double f = 3.0;
 
         setback.setCoordinateX(u.getCoordinateX()*f + p1.getCoordinateX());
