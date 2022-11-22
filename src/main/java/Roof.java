@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 import com.google.gson.annotations.SerializedName;
 
 public class Roof {
@@ -44,4 +43,12 @@ public class Roof {
         this.points = points;
     }
 
+    @Override
+    public String toString() {
+        return "Roof{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", points=" + points +
+                '}';
+    }
 }
