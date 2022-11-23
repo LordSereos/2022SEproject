@@ -49,7 +49,7 @@ public class Main {
         lines.add(L6);
         lines.add(L7);
 /**
- * 12Here we scan through our list of lines, and if the line is of type RAKE,
+ * 1Here we scan through our list of lines, and if the line is of type RAKE,
  * we need to apply our calculations to this line (find the setback from top
  * of the line).
  *
@@ -58,7 +58,7 @@ public class Main {
  */
         List<Point> setbackPoints = new ArrayList<>();
         for (Line i : lines){
-            if (i.getType() == "RAKE"){
+            if (i.getType().equals("RAKE")){
                 System.out.println(i.customToString());
                 setbackPoints.add(i.getSetbackCoordinates());
             }
