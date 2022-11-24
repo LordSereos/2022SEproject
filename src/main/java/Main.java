@@ -1,3 +1,4 @@
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,11 @@ public class Main {
                 setbackPoints.add(i.getSetbackCoordinates());
             }
         }
+
+        // Code to get setBackArea from team2
+        RidgeSetbackCalculator ridgeSetbackCalculator = new RidgeSetbackCalculator();
+        FormSetbackArea setbackArea = ridgeSetbackCalculator.getFormSetbackArea(lines);
+
 /**
  * Now when we have all the setback points, we need to form lines between correct points.
  * The line will represent the limit of the 3feet from the ridge. This line is also
