@@ -168,3 +168,19 @@ Goals for next week:
 Start implementing support for different roof face types in the software. 
    
 Status: GREEN
+
+
+
+2022/11/25
+
+What was done?
+This week we had a short meeting between area 2, 4 and 5 about merging of the project areas. Afterwards, we proceeded to merge
+area 4 with area 2.
+
+What issues/risks/blockers do you have?
+There were some issues while merging the areas, which took us some time to fix.
+
+Goals for next week:
+Implement functionalities to support complex roof types, look into merging of other areas.
+
+Status: GREEN
