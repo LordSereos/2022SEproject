@@ -160,3 +160,18 @@ everyone successfully finished their responsibility and we managed to finish eve
    *Read JSON data and then use the program to solve our problem
    
    4) Status: GREEN
+   
+   2022/11/18
+   1) What was done?
+   *Merged area 2 and area 4
+   *Refactored main
+   *Json reader almost fully implemented
+   
+   2) What issues/blockers did we face?
+   *Build tools conflict while merging
+   
+   3) Goal for next week:
+   *More automated tests
+   *Start working on deeper code complexity (for more complicated roofs)
+   
+   4) Status: GREEN
