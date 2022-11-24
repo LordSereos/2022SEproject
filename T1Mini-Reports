@@ -63,5 +63,20 @@ Goals for the next week
 
 STATUS GREEN
 --------------------------------------------------------------------------------------------------------------------------
+week 11/25/2022
+
+What was done?
+	*we have tried to move forward with automated tests
+	*we have fixed some errors in our code.
+
+What issues/blockers did we face?
+	*not knowing what parts of our code to test exactly and how to do 
+	*low availability of members this week for various reasons
+
+Goals for next week
+	*create more automated tests
+	*keep going with code improvements 
+
+STATUS: YELLOW
 
 
