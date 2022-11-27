@@ -10,6 +10,7 @@ public class Main {
 
         RectangleCoordinates roof = new RectangleCoordinates();
 
+
         roof.findCordinates("C6", "C5", "C1");
         roof.findCordinates("C5", "C2", "C6");
         roof.findCordinates("C2", "C1", "C5");
@@ -30,6 +31,21 @@ public class Main {
         Point C4 = new Point("C4", 12.692402800032868, -1.593168162330985, 9.84);
         Point C5 = new Point("C5", -7.994599840007722, 39.01948351755738, 9.84);
         Point C6 = new Point("C6", -12.692402800032868, 1.593168159276247, 9.84);
+
+        //Point C1
+        System.out.println(data.getInfo().getRoofs().get(0));
+        //Point C2
+        System.out.println(data.getInfo().getRoofs().get(1));
+        //Point C3
+        System.out.println(data.getInfo().getRoofs().get(2));
+        //Point C4
+        System.out.println(data.getInfo().getRoofs().get(3));
+        //Point C5
+        System.out.println(data.getInfo().getRoofs().get(4));
+        //Point C6
+        System.out.println(data.getInfo().getRoofs().get(5));
+
+        System.out.println();
 
         List<Line> lines = new ArrayList<>();
         Line L1 = new Line("L1", "RIDGE", C1, C2);
