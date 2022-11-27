@@ -32,20 +32,16 @@ public class Main {
         Point C5 = new Point("C5", -7.994599840007722, 39.01948351755738, 9.84);
         Point C6 = new Point("C6", -12.692402800032868, 1.593168159276247, 9.84);
 
-        //Point C1
+        //Roof L1
         System.out.println(data.getInfo().getRoofs().get(0));
+        //Point C1
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateX());
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY());
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateZ());
         //Point C2
-        System.out.println(data.getInfo().getRoofs().get(1));
-        //Point C3
-        System.out.println(data.getInfo().getRoofs().get(2));
-        //Point C4
-        System.out.println(data.getInfo().getRoofs().get(3));
-        //Point C5
-        System.out.println(data.getInfo().getRoofs().get(4));
-        //Point C6
-        System.out.println(data.getInfo().getRoofs().get(5));
-
-        System.out.println();
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(1).getCoordinateX());
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(1).getCoordinateY());
+        System.out.println(data.getInfo().getRoofs().get(0).getPoints().get(1).getCoordinateZ());
 
         List<Line> lines = new ArrayList<>();
         Line L1 = new Line("L1", "RIDGE", C1, C2);
