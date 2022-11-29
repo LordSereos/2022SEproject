@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 public class Roof {
@@ -18,7 +20,7 @@ public class Roof {
         this.type = type;
         this.points = points;
     }
-
+    @JsonProperty("Id")
     public String getId() {
         return id;
     }
@@ -26,7 +28,7 @@ public class Roof {
     public void setId(String id) {
         this.id = id;
     }
-
+    @JsonProperty("Type")
     public String getType() {
         return type;
     }
@@ -34,7 +36,7 @@ public class Roof {
     public void setType(String type) {
         this.type = type;
     }
-
+    @JsonProperty("Points")
     public ArrayList<Point> getPoints() {
         return points;
     }
@@ -51,4 +53,5 @@ public class Roof {
                 ", points=" + points +
                 '}';
     }
+
 }

@@ -1,8 +1,14 @@
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ReadFromJSON {
     private static HashMap<String, Point> pointStorage = new HashMap<>();
@@ -26,7 +32,7 @@ public class ReadFromJSON {
         HashMap<String, Point> points = new HashMap<>();
         for (Roof i : data.getRoofs()){
             for(Point j : i.getPoints())
-                points.put(j.getId(), new Point(j.getCoordinateX(), j.getCoordinateY(), j.getCoordinateZ()));
+                points.put(j.getId(), new Point(j.getId(), j.getCoordinateX(), j.getCoordinateY(), j.getCoordinateZ()));
         }
         return points;
     }
@@ -47,4 +53,7 @@ public class ReadFromJSON {
     public HashMap<String, Point> getPointStorage() {
         return this.pointStorage;
     }
+
+
 }
+
