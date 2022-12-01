@@ -78,5 +78,24 @@ Goals for next week
 	*keep going with code improvements 
 
 STATUS: YELLOW
+-------------------------------------------------------------------------------------------------------------------------------
+week 12/01/2022
+
+What was done?
+	*we have tried to move forward with automated tests
+	*we have fixed some errors in our code.
+	*We help team 2, sending them captures of the results of our json
+	*correct compilation of the main application and the automated test
+	*post on github everything done from area code 1
+
+What issues/blockers did we face?
+	*not knowing what parts of our code to test exactly and how to do 
+	*low availability of members this week for various reasons
+
+Goals for next week
+	*try to create the xml security, finishing the proyect
+
+STATUS: GREEN
+------------------------------------------------------------------------------------------------------------------------
 
 
