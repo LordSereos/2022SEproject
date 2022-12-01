@@ -5,7 +5,6 @@ public class Main {
         formatPdf.PrintPdf();
 
         DrawLinesFromCords drawLinesFromCords = new DrawLinesFromCords();
-
         drawLinesFromCords.Launch(null);
     }
 }

@@ -8,8 +8,6 @@ import java.util.LinkedList;
 
 //TO DO import Coordinates of lines from JSON
 
-//Need to fix: Whole program is in main; can be done later
-
 public class DrawLinesFromCords extends JComponent {
 
     private static class Line {

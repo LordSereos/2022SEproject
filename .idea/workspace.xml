@@ -5,8 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f153808-88ee-4756-9969-9b0baccdf017" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SolarPanel/PdfDocs/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SolarPanel/src/main/java/ReadJSONFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SolarPanel/src/test/java/FormatPdfTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/7.0/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/Images/testimage.png" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/Images/testimage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords$Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/DrawLinesFromCords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/FormatPdf.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/FormatPdf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/src/main/java/DrawLinesFromCords.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/src/main/java/DrawLinesFromCords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/src/main/java/FormatPdf.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/src/main/java/FormatPdf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SolarPanel/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolarPanel/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +81,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -66,16 +100,30 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/2022SEproject-team5" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\visti\Documents\GitHub\2022SEproject\SolarPanel\JSONFiles" />
       <recent name="C:\Users\visti\Documents\GitHub\2022SEproject\SolarPanel\src\main\java" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle build" />
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="FormatPdf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -96,6 +144,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReadJSONFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ReadJSONFile" />
+      <module name="SolarPanel" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -103,6 +160,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="SolarPanel [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/SolarPanel" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="SolarPanel [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -181,13 +259,17 @@
     <list>
       <item itemvalue="Application.FormatPdf" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ReadJSONFile" />
       <item itemvalue="Gradle.SolarPanel [dependencies]" />
+      <item itemvalue="Gradle.SolarPanel [build]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SolarPanel [dependencies]" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ReadJSONFile" />
         <item itemvalue="Application.FormatPdf" />
+        <item itemvalue="Gradle.SolarPanel [dependencies]" />
+        <item itemvalue="Gradle.SolarPanel [build]" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
