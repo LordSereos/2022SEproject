@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+
 import com.google.gson.annotations.SerializedName;
 
 public class Roof {
@@ -51,4 +53,5 @@ public class Roof {
                 ", points=" + points +
                 '}';
     }
+
 }
