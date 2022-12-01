@@ -24,11 +24,16 @@ public class Line {
     public Line() {
     }
 
-    public Line(String id, String type, Point p1, Point p2) {
+    public Line(String id, String type, Point point1, Point point2) {
         this.id = id;
         this.type = type;
-        this.p1 = p1;
-        this.p2 = p2;
+        if(point1.getCoordinateZ() > point2.getCoordinateZ()) {
+            this.p1 = point1;
+            this.p2 = point2;
+        } else {
+            this.p2 = point1;
+            this.p1 = point2;
+        }
 /**
  * setV - finds the vector between two points forming a line
  * setLength - finds the length of that vector
