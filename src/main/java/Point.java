@@ -1,4 +1,4 @@
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Point {
@@ -27,7 +27,7 @@ public class Point {
         this.coordinateY = coordinateY;
         this.coordinateZ = coordinateZ;
     }
-    @JsonProperty("Id")
+
     public String getId() {
         return id;
     }
@@ -35,7 +35,7 @@ public class Point {
     public void setId(String id) {
         this.id = id;
     }
-    @JsonProperty("CoordinateX")
+
     public double getCoordinateX() {
         return coordinateX;
     }
@@ -43,7 +43,7 @@ public class Point {
     public void setCoordinateX(double coordinateX) {
         this.coordinateX = coordinateX;
     }
-    @JsonProperty("CoordinateY")
+
     public double getCoordinateY() {
         return coordinateY;
     }
@@ -51,7 +51,7 @@ public class Point {
     public void setCoordinateY(double coordinateY) {
         this.coordinateY = coordinateY;
     }
-    @JsonProperty("CoordinateZ")
+
     public double getCoordinateZ() {
         return coordinateZ;
     }

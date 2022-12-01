@@ -85,7 +85,7 @@ public class FormSetbackArea {
             ridgeRakeCluster.get(i).add(ridge.getP1());
             ridgeRakeCluster.get(i).add(ridge.getP2());
             for (Line rake : rakes){
-                if (rake.getP1() == ridge.getP1() || rake.getP1() == ridge.getP2() || rake.getP2() == ridge.getP1() || rake.getP2() == ridge.getP2()){
+                if (rake.getP1().getId().equals(ridge.getP1().getId()) || rake.getP1().getId().equals(ridge.getP2().getId()) || rake.getP2().getId().equals(ridge.getP1().getId()) || rake.getP2().getId().equals(ridge.getP2().getId())){
                     ridgeRakeCluster.get(i).add(rake.getSetbackCoordinates());
                 }
             }
@@ -107,7 +107,7 @@ public class FormSetbackArea {
 
     public void setRidges(List<Line> ridges, List<Line> lines) {
         for (Line i : lines){
-            if (i.getType() == "RIDGE") ridges.add(i);
+            if (i.getType().equals("RIDGE")) ridges.add(i);
         }
     }
 
@@ -117,7 +117,7 @@ public class FormSetbackArea {
 
     public void setRakes(List<Line> rakes, List<Line> lines) {
         for (Line i : lines){
-            if (i.getType() == "RAKE") rakes.add(i);
+            if (i.getType().equals("RAKE")) rakes.add(i);
         }
     }
 
