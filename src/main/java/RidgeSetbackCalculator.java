@@ -7,7 +7,6 @@ public class RidgeSetbackCalculator {
     private List<Point> getSetbackPoints(List<Line> lines) {
         for (Line i : lines){
             if (i.getType().equals("RAKE")){
-//                System.out.println(i.customToString());
                 setbackPoints.add(i.getSetbackCoordinates());
             }
         }
