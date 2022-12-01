@@ -37,6 +37,12 @@ public class Main {
         roof.printZoneTwo();
         roof.printZoneThree();
 
+        FormatPdf formatPdf = new FormatPdf();
+        formatPdf.PrintPdf();
+
+        DrawLinesFromCords drawLinesFromCords = new DrawLinesFromCords();
+        drawLinesFromCords.Launch(null);
+
     }
 
 }
