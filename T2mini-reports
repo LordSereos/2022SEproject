@@ -175,3 +175,21 @@ everyone successfully finished their responsibility and we managed to finish eve
    *Start working on deeper code complexity (for more complicated roofs)
    
    4) Status: GREEN
+
+   2022/12/01
+   1) What was done?
+   *Json reader fully implemented (no need in mock data)
+   *Backend logic error fix (setback lines wouldn't be calculated)
+   *Refactoring for better readability and usability
+   *No conflicts between AREA2 and AREA4, we use the same json reader.
+   
+   2) What issues/blockers did we face?
+   *When mock data deleted, calculations wouldn't work. 
+   mainly needed to fix string equality in if statements: from == to .equals
+   
+   3) Goal for next week:
+   *Try AREA1 json
+   *Think how to find a paralel line to bridge for complicated roofs
+   
+   4) Status: YELLOW
+   
