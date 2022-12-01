@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SetbackAreaCalculation" />
+        <module name="2022SEproject" />
       </profile>
     </annotationProcessing>
   </component>

@@ -38,7 +38,7 @@ public class Line {
         setV(p1, p2);
         setLength(v);
         setU(v, length);
-        setSetbackCoordinates(v, length, u);
+        setSetbackCoordinates(u);
 
     }
 
@@ -102,7 +102,7 @@ public class Line {
         return u;
     }
 
-    public void setSetbackCoordinates(Point v, double length, Point u){
+    public void setSetbackCoordinates(Point u){
         double f = 3.0;
 
         setback.setCoordinateX(u.getCoordinateX()*f + p1.getCoordinateX());

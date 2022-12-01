@@ -33,7 +33,7 @@ public class Main {
         lines.add(L6);
         lines.add(L7);
 /**
- * Here we scan through our list of lines, and if the line is of type RAKE,
+ * 12Here we scan through our list of lines, and if the line is of type RAKE,
  * we need to apply our calculations to this line (find the setback from top
  * of the line).
  *
