@@ -184,3 +184,19 @@ Goals for next week:
 Implement functionalities to support complex roof types, look into merging of other areas.
 
 Status: GREEN
+
+
+2002/12/01
+
+What was done?
+Documented logic behind the software.
+Continued implementing logic. 
+   
+What issues/risks/blockers did we face?
+Difficulties explaining the logic to everyone.
+   
+Goal for next week:
+Try working witb data of different roof types.
+   
+Status: YELLOW
+   
