@@ -189,14 +189,15 @@ Status: GREEN
 2002/12/01
 
 What was done?
-Documented logic behind the software.
-Continued implementing logic. 
+Documented logic behind the software, so that everyone in our team can understand it easier.
+Fixed some conflicts between area 2 and 4.
    
 What issues/risks/blockers did we face?
-Difficulties explaining the logic to everyone.
+Issues implementing the logic.
    
 Goal for next week:
-Try working witb data of different roof types.
+Try working with data of different roof types.
+Start remaking official documentation.
    
 Status: YELLOW
    
