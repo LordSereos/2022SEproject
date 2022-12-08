@@ -106,3 +106,21 @@ What is the goal for next week?
 What is the overall status?
 - For our team Yellow
 
+
+
+
+9 Dec
+What was done this week?
+- Decided what parts of code we are going to test
+- Wrote function that adds image into a PDF
+
+What issues/risks/blockers do you have?
+- What and how to test because we basically just need to parce data and then buid it into PDF.
+
+What is the goal for next week?
+- Test chosen parts of code
+- Create that creates image
+
+What is the overall status?
+- For our team Yellow
+
