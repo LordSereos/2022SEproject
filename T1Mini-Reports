@@ -97,5 +97,24 @@ Goals for next week
 
 STATUS: GREEN
 ------------------------------------------------------------------------------------------------------------------------
+Week 08/12/2022
+What was done?
+	*we have tried to move forward with automated tests
+	*we have fixed some errors in our code.
+	*We help team 2, sending them our json results
+	*correct compilation of the executable.jar
+	
+
+What issues/blockers did we face?
+	*correct compilation of the executable but we had problems with formatting our json models
+	*low availability of members this week for various reasons
+	*much of our code like classes and methods are left over.
+
+Goals for next week
+	*modify the code this weekend, since what they are looking for is directly to obtain the lines and points,
+	because we have complicated it a lot
+	*change the data model and send it to team 2
+
+STATUS: RED/YELLOW
 
 
