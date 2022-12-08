@@ -34,59 +34,82 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
+
     @Override
     protected void paintComponent(Graphics g) {
         /*Main part which draws lines on JFrame from lines list*/
-        int tempScale = 5; /*Temporary scale up*/
-        int tempoffscale= 100;
+
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g.create();
         ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
+        RectangleCoordinates roof = new RectangleCoordinates();
+        System.out.println(getPreferredSize().height);
+
 
         //Find smallest x, y, z
-        double minX = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateX();
-        double minY = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
-        double minZ = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
-        
-        for (int n = 0; n<2; n++) {
-            for (int i = 0; i < data.getInfo().getRoofs().size(); i++) {
+        double minX=99999;
+        double minY=99999;
 
-
-                if (minX > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateX()) {
-                    minX = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateX();
-                }
-
-                if (minY > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY()) {
-                    minY = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY();
-                }
-
-                if (minZ > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY()) {
-                    minZ = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY();
-
-                }
-            }
-        }
-        if(minX<0){minX= minX * -1;}
-        if(minY<0){minY= minY * -1;}
-        if(minZ<0){minZ= minZ * -1;}
-
-
-        System.out.println(minX*tempScale);
-        System.out.println(minY*tempScale);
-
+        double maxx=-999999;
+        double maxy=-999999;
+        double max=0;
+        int h= getWidth();
+        int w= getHeight();
+        System.out.println(h+" aaa "+w);
         for (Line2D.Double line : lines) {
+
+                if (minX > line.getX1()) {minX = line.getX1();}
+                if (minY > line.getY1()) {minY = line.getY1();}
+                if (minX > line.getX2()) {minX = line.getX2();}
+                if (minY > line.getY2()) {minY = line.getY2();}
+                
+                if (maxx < line.getX1()) {maxx = line.getX1();}
+                if (maxy < line.getY1()) {maxy = line.getY1();}
+                if (maxx < line.getX2()) {maxx = line.getX2();}
+                if (maxy < line.getY2()) {maxy = line.getY2();}
+
+        }
+
+
+        System.out.println(minX);
+        System.out.println(maxx);
+
+            if(minX<0){minX= minX * -1;}
+            if(minY<0){minY= minY * -1;}
+            if(maxx<0){maxx= maxx * -1;}
+            if(maxy<0){maxy= maxy * -1;}
+
+            double scale;
+
+            if(maxy<maxx){
+                max=maxx;
+            }
+            else{
+                max=maxy;
+            }
+            if(w>h){scale=h/max;}
+            else{scale=w/max;}
+
+            System.out.println(scale + "asd");
+            if (scale>0){scale=scale-1;}
+        System.out.println(maxx+" ||| "+maxy);
+            for (Line2D.Double line : lines) {
             g2d.setStroke(new BasicStroke(3));    /*Width of line*/
             g2d.setPaint(Color.BLACK);                  /*Color of line*/
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); /*Anialiasing ON*/
             g2d.draw(new Line2D.Double(
-                    (line.x1 * tempScale)+ minX*tempScale,
-                    (line.y1 * tempScale)+ minY*tempScale,
-                    (line.x2 * tempScale) + minX*tempScale,
-                    (line.y2 * tempScale)+ minY*tempScale));
+                    (line.x1 * scale)+ minX*scale,
+                    (line.y1 * scale)+ minY*scale,
+                    (line.x2 * scale)+ minX*scale,
+                    (line.y2 * scale)+ minY*scale));
             /*Draws Shape of Lines*/
 
+
+
+        
         }
+
     }
 
     /*Adds lines to list */
@@ -114,7 +137,7 @@ public class DrawLinesFromCords extends JComponent {
         buttonsPanel.add(clearButton);
         buttonsPanel.add(drawroof);
         testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
-
+        System.out.println(comp.getPreferredSize());
 
 
         newLineButton.addActionListener(new ActionListener() {
@@ -130,9 +153,6 @@ public class DrawLinesFromCords extends JComponent {
                 double[] arry1 = new double[]{8.299623438715935, 6.6723924789577715, 6.403721119835972, 8.030952079594135, 27.012781117856502};
                 /*coordinate of point2 y*/
                 double[] arry2 = new double[]{6.6723924789577715, 6.403721119835972, 8.030952079594135, 8.299623438715935, 25.38555015809834};
-
-
-
 
 
 
@@ -162,8 +182,7 @@ public class DrawLinesFromCords extends JComponent {
             /*Same as newline*/
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Negative coordinates go out of bounds
-                //Need to offset(arr[]+offset)
+
 
                 ReadFromJSON data = new ReadFromJSON();
                 data.readPoints("./JSON_files/Data.json");
@@ -175,6 +194,7 @@ public class DrawLinesFromCords extends JComponent {
                             data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateY(),
                             data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateX(),
                             data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateY());
+
                 }
             }
         });
