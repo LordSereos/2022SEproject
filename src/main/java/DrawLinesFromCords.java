@@ -32,7 +32,7 @@ public class DrawLinesFromCords extends JComponent {
         repaint();
         /*Method for clearing lines from list*/
     }
-    int LineCount=7;
+
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -44,12 +44,13 @@ public class DrawLinesFromCords extends JComponent {
         ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
 
+        //Find smallest x, y, z
         double minX = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateX();
         double minY = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
         double minZ = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
-        //Find smallest x, y, z
+        
         for (int n = 0; n<2; n++) {
-            for (int i = 0; i < LineCount; i++) {
+            for (int i = 0; i < data.getInfo().getRoofs().size(); i++) {
 
 
                 if (minX > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateX()) {
@@ -167,7 +168,7 @@ public class DrawLinesFromCords extends JComponent {
                 ReadFromJSON data = new ReadFromJSON();
                 data.readPoints("./JSON_files/Data.json");
 
-                for (int i = 0; i <LineCount; i++) {
+                for (int i = 0; i <data.getInfo().getRoofs().size(); i++) {
 
                     comp.addLine(
                             data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateX(),
