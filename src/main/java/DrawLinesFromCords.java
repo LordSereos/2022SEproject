@@ -32,18 +32,57 @@ public class DrawLinesFromCords extends JComponent {
         repaint();
         /*Method for clearing lines from list*/
     }
+    int LineCount=7;
 
     @Override
     protected void paintComponent(Graphics g) {
         /*Main part which draws lines on JFrame from lines list*/
-        int tempScale = 20; /*Temporary scale up*/
+        int tempScale = 5; /*Temporary scale up*/
+        int tempoffscale= 100;
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g.create();
+        ReadFromJSON data = new ReadFromJSON();
+        data.readPoints("./JSON_files/Data.json");
+
+        double minX = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateX();
+        double minY = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
+        double minZ = data.getInfo().getRoofs().get(0).getPoints().get(0).getCoordinateY();
+        //Find smallest x, y, z
+        for (int n = 0; n<2; n++) {
+            for (int i = 0; i < LineCount; i++) {
+
+
+                if (minX > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateX()) {
+                    minX = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateX();
+                }
+
+                if (minY > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY()) {
+                    minY = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY();
+                }
+
+                if (minZ > data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY()) {
+                    minZ = data.getInfo().getRoofs().get(i).getPoints().get(n).getCoordinateY();
+
+                }
+            }
+        }
+        if(minX<0){minX= minX * -1;}
+        if(minY<0){minY= minY * -1;}
+        if(minZ<0){minZ= minZ * -1;}
+
+
+        System.out.println(minX*tempScale);
+        System.out.println(minY*tempScale);
+
         for (Line2D.Double line : lines) {
             g2d.setStroke(new BasicStroke(3));    /*Width of line*/
             g2d.setPaint(Color.BLACK);                  /*Color of line*/
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); /*Anialiasing ON*/
-            g2d.draw(new Line2D.Double(line.x1 * tempScale, line.y1 * tempScale, line.x2 * tempScale, line.y2 * tempScale));
+            g2d.draw(new Line2D.Double(
+                    (line.x1 * tempScale)+ minX*tempScale,
+                    (line.y1 * tempScale)+ minY*tempScale,
+                    (line.x2 * tempScale) + minX*tempScale,
+                    (line.y2 * tempScale)+ minY*tempScale));
             /*Draws Shape of Lines*/
 
         }
@@ -75,6 +114,8 @@ public class DrawLinesFromCords extends JComponent {
         buttonsPanel.add(drawroof);
         testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
 
+
+
         newLineButton.addActionListener(new ActionListener() {
 
             @Override
@@ -88,6 +129,10 @@ public class DrawLinesFromCords extends JComponent {
                 double[] arry1 = new double[]{8.299623438715935, 6.6723924789577715, 6.403721119835972, 8.030952079594135, 27.012781117856502};
                 /*coordinate of point2 y*/
                 double[] arry2 = new double[]{6.6723924789577715, 6.403721119835972, 8.030952079594135, 8.299623438715935, 25.38555015809834};
+
+
+
+
 
 
                 /*for loops for the length of arrx1*/
@@ -119,17 +164,16 @@ public class DrawLinesFromCords extends JComponent {
                 //Negative coordinates go out of bounds
                 //Need to offset(arr[]+offset)
 
-                double[] arrx1 = new double[]{17.390205760058013, 12.692402800032868};
-                double[] arrx2 = new double[]{12.692402800032868, 0};
-                double[] arry1 = new double[]{35.833147199004884, -1.593168162330985};
-                double[] arry2 = new double[]{-1.593168162330985, 0};
-                for (int i = 0; i < arrx1.length; i++) {
+                ReadFromJSON data = new ReadFromJSON();
+                data.readPoints("./JSON_files/Data.json");
 
-                    double x1 = arrx1[i];
-                    double x2 = arrx2[i];
-                    double y1 = arry1[i];
-                    double y2 = arry2[i];
-                    comp.addLine(x1, y1, x2, y2);
+                for (int i = 0; i <LineCount; i++) {
+
+                    comp.addLine(
+                            data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateX(),
+                            data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateY(),
+                            data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateX(),
+                            data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateY());
                 }
             }
         });
