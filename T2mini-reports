@@ -161,7 +161,7 @@ everyone successfully finished their responsibility and we managed to finish eve
    
    4) Status: GREEN
    
-   2022/11/18
+   2022/11/25
    1) What was done?
    *Merged area 2 and area 4
    *Refactored main
@@ -189,7 +189,20 @@ everyone successfully finished their responsibility and we managed to finish eve
    
    3) Goal for next week:
    *Try AREA1 json
-   *Think how to find a paralel line to bridge for complicated roofs
+   *Think how to find a paralel line to ridge for complicated roofs
    
    4) Status: YELLOW
    
+   2022/12/09
+   1) What was done?
+   *Tried area1 JSON
+   *Found a way to find a paralel line to ridge for complicated roofs
+
+   2) What issues/blockers did we face?
+   *Area1 json is not what we expected
+   
+   3) Goal for next week:
+   *Update documentations
+   *Implement paralel line logic (maybe)
+   
+   4) Status: YELLOW
