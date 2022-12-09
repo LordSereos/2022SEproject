@@ -170,7 +170,6 @@ Start implementing support for different roof face types in the software.
 Status: GREEN
 
 
-
 2022/11/25
 
 What was done?
@@ -195,9 +194,25 @@ Fixed some conflicts between area 2 and 4.
 What issues/risks/blockers did we face?
 Issues implementing the logic.
    
-Goal for next week:
+Goals for next week:
 Try working with data of different roof types.
 Start remaking official documentation.
    
 Status: YELLOW
-   
+
+
+2002/12/09
+
+What was done?
+Started remaking official documentation.
+Fixed some code issues and continued software development.
+
+What issues/risks/blockers did we face?
+Had some time constraints.
+
+Goals for next week:
+Try to finish coding.
+Implement more automated tests.
+Finish remaking official documentation.
+
+Status: YELLOW
