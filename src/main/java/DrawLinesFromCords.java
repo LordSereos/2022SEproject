@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,17 +16,28 @@ public class DrawLinesFromCords extends JComponent {
         final double y1;
         final double x2;
         final double y2;
+        final Color Color;
 
-        public Line2Draw(double x1, double y1, double x2, double y2) {
+
+
+
+
+
+        public Line2Draw(double x1, double y1, double x2, double y2, Color Color) {
             this.x1 = x1;
             this.y1 = y1;
             this.x2 = x2;
             this.y2 = y2;
+            this.Color = Color;
+
         }
     }
 
+
+
     /*Lines from buttons is stored inside LinkedList*/
-    private final LinkedList<Line2D.Double> Line2Draw = new LinkedList<Line2D.Double>();
+    private final LinkedList<Line2Draw> Line2Draw = new LinkedList<Line2Draw>();
+
 
     public void clearLines() {
         Line2Draw.clear();
@@ -56,20 +66,20 @@ public class DrawLinesFromCords extends JComponent {
         double maxx= -99999;
         double maxy= -99999;
         double max=0;
+        Color DefaultColor= java.awt.Color.BLACK;
         int h= getWidth();
         int w= getHeight();
 
-
-        for (Line2D.Double line : Line2Draw) {
-                if (minX > line.getX1()) {minX = line.getX1();}
-                if (minY > line.getY1()) {minY = line.getY1();}
-                if (minX > line.getX2()) {minX = line.getX2();}
-                if (minY > line.getY2()) {minY = line.getY2();}
+        for (Line2Draw line : Line2Draw) {
+                if (minX > line.x1) {minX = line.x1;}
+                if (minY > line.y1) {minY = line.y1;}
+                if (minX > line.x2) {minX = line.x2;}
+                if (minY > line.y2) {minY = line.y2;}
                 
-                if (maxx < line.getX1()) {maxx = line.getX1();}
-                if (maxy < line.getY1()) {maxy = line.getY1();}
-                if (maxx < line.getX2()) {maxx = line.getX2();}
-                if (maxy < line.getY2()) {maxy = line.getY2();}
+                if (maxx < line.x1) {maxx = line.x1;}
+                if (maxy < line.y1) {maxy = line.y1;}
+                if (maxx < line.x2) {maxx = line.x2;}
+                if (maxy < line.y2) {maxy = line.y2;}
 
         }
 
@@ -93,16 +103,21 @@ public class DrawLinesFromCords extends JComponent {
 
             if (scale>0){scale=scale-1;}
 
-            for (Line2D.Double line : Line2Draw) {
-            g2d.setStroke(new BasicStroke(3));    /*Width of line*/
-            g2d.setPaint(Color.BLACK);                  /*Color of line*/
+            for (Line2Draw line : Line2Draw) {
+            g2d.setStroke(new BasicStroke(3));
+
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); /*Anialiasing ON*/
+
+
+                g2d.setPaint(line.Color);
             g2d.draw(new Line2D.Double(
                     (line.x1 * scale)+ minX*scale,
                     (line.y1 * scale)+ minY*scale,
                     (line.x2 * scale)+ minX*scale,
-                    (line.y2 * scale)+ minY*scale));
+                    (line.y2 * scale)+ minY*scale)
+            );
             /*Draws Shape of Lines*/
+
 
 
 
@@ -112,8 +127,9 @@ public class DrawLinesFromCords extends JComponent {
     }
   /*Adds lines to list */
 
-    public void addLine(double x1, double y1, double x2, double y2) {
-        Line2Draw.add(new Line2D.Double(x1, y1, x2, y2));
+    public void addLine(double x1, double y1, double x2, double y2, Color Color) {
+        Line2Draw.add(new Line2Draw(x1, y1, x2, y2, Color));
+
         repaint();
 
     }
@@ -148,7 +164,8 @@ public class DrawLinesFromCords extends JComponent {
 
                 for (Line i : coordlist){
 
-                    comp.addLine(i.getP1().getCoordinateX(), i.getP1().getCoordinateY(), i.getP2().getCoordinateX(), i.getP2().getCoordinateY());
+                    comp.addLine(i.getP1().getCoordinateX(), i.getP1().getCoordinateY(), i.getP2().getCoordinateX(), i.getP2().getCoordinateY(), Color.BLACK);
+
 
                 }
 
@@ -179,11 +196,15 @@ public class DrawLinesFromCords extends JComponent {
                             data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateX(),
                             data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateY(),
                             data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateX(),
-                            data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateY());
+                            data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateY(),
+                            Color.GREEN );
 
                 }
             }
         });
+
+
+
 
         testFrame.pack();
         testFrame.setVisible(true);
