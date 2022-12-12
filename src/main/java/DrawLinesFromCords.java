@@ -3,20 +3,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
-
-//TO DO import Coordinates of lines from JSON
 
 public class DrawLinesFromCords extends JComponent {
 
-    private static class Line {
+    private List<Line2Draw> lines;
+
+    private static class Line2Draw {
         final double x1;
         final double y1;
         final double x2;
         final double y2;
 
-        public Line(double x1, double y1, double x2, double y2) {
+        public Line2Draw(double x1, double y1, double x2, double y2) {
             this.x1 = x1;
             this.y1 = y1;
             this.x2 = x2;
@@ -25,10 +27,10 @@ public class DrawLinesFromCords extends JComponent {
     }
 
     /*Lines from buttons is stored inside LinkedList*/
-    private final LinkedList<Line2D.Double> lines = new LinkedList<Line2D.Double>();
+    private final LinkedList<Line2D.Double> Line2Draw = new LinkedList<Line2D.Double>();
 
     public void clearLines() {
-        lines.clear();
+        Line2Draw.clear();
         repaint();
         /*Method for clearing lines from list*/
     }
@@ -44,21 +46,21 @@ public class DrawLinesFromCords extends JComponent {
         ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
         RectangleCoordinates roof = new RectangleCoordinates();
-        System.out.println(getPreferredSize().height);
+
 
 
         //Find smallest x, y, z
         double minX=99999;
         double minY=99999;
 
-        double maxx=-999999;
-        double maxy=-999999;
+        double maxx= -99999;
+        double maxy= -99999;
         double max=0;
         int h= getWidth();
         int w= getHeight();
-        System.out.println(h+" aaa "+w);
-        for (Line2D.Double line : lines) {
 
+
+        for (Line2D.Double line : Line2Draw) {
                 if (minX > line.getX1()) {minX = line.getX1();}
                 if (minY > line.getY1()) {minY = line.getY1();}
                 if (minX > line.getX2()) {minX = line.getX2();}
@@ -71,9 +73,6 @@ public class DrawLinesFromCords extends JComponent {
 
         }
 
-
-        System.out.println(minX);
-        System.out.println(maxx);
 
             if(minX<0){minX= minX * -1;}
             if(minY<0){minY= minY * -1;}
@@ -91,10 +90,10 @@ public class DrawLinesFromCords extends JComponent {
             if(w>h){scale=h/max;}
             else{scale=w/max;}
 
-            System.out.println(scale + "asd");
+
             if (scale>0){scale=scale-1;}
-        System.out.println(maxx+" ||| "+maxy);
-            for (Line2D.Double line : lines) {
+
+            for (Line2D.Double line : Line2Draw) {
             g2d.setStroke(new BasicStroke(3));    /*Width of line*/
             g2d.setPaint(Color.BLACK);                  /*Color of line*/
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); /*Anialiasing ON*/
@@ -111,18 +110,18 @@ public class DrawLinesFromCords extends JComponent {
         }
 
     }
+  /*Adds lines to list */
 
-    /*Adds lines to list */
     public void addLine(double x1, double y1, double x2, double y2) {
-        lines.add(new Line2D.Double(x1, y1, x2, y2));
+        Line2Draw.add(new Line2D.Double(x1, y1, x2, y2));
         repaint();
 
     }
 
 
-    public void Launch(String[] args) {
+    public void Launch(List<Line> coordlist) {
 
-
+        System.out.println(coordlist.get(0));
 
         JFrame testFrame = new JFrame();                            /*Initializes JFrame*/
         testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -130,14 +129,14 @@ public class DrawLinesFromCords extends JComponent {
         comp.setPreferredSize(new Dimension(600, 400));
         testFrame.getContentPane().add(comp, BorderLayout.CENTER);
         JPanel buttonsPanel = new JPanel();                         /*Initializes Jpanel*/
-        JButton newLineButton = new JButton("Draw rectangle");
+        JButton newLineButton = new JButton("Draw from list");
         JButton clearButton = new JButton("Clear");
-        JButton drawroof = new JButton("Draw roof");
+        JButton drawroof = new JButton("Draw roof from json");
         buttonsPanel.add(newLineButton);
         buttonsPanel.add(clearButton);
         buttonsPanel.add(drawroof);
         testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
-        System.out.println(comp.getPreferredSize());
+
 
 
         newLineButton.addActionListener(new ActionListener() {
@@ -145,28 +144,15 @@ public class DrawLinesFromCords extends JComponent {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                /*coordinate of point1 x*/
-                double[] arrx1 = new double[]{10.253362000016494, 10.049109839983284, 12.189552560006268, 12.393804720039478, 12.602265120041556};
-                /*coordinate of point2 x*/
-                double[] arrx2 = new double[]{10.049109839983284, 12.189552560006268, 12.393804720039478, 10.253362000016494, 12.398012960008344};
-                /*coordinate of point1 y*/
-                double[] arry1 = new double[]{8.299623438715935, 6.6723924789577715, 6.403721119835972, 8.030952079594135, 27.012781117856502};
-                /*coordinate of point2 y*/
-                double[] arry2 = new double[]{6.6723924789577715, 6.403721119835972, 8.030952079594135, 8.299623438715935, 25.38555015809834};
 
 
+                for (Line i : coordlist){
 
-                /*for loops for the length of arrx1*/
-                for (int i = 0; i < arrx1.length; i++) {
-
-                    double x1 = (arrx1[i]);
-                    double x2 = (arrx2[i]);
-                    double y1 = (arry1[i]);
-                    double y2 = (arry2[i]);
-                    comp.addLine(x1, y1, x2, y2);
-
+                    comp.addLine(i.getP1().getCoordinateX(), i.getP1().getCoordinateY(), i.getP2().getCoordinateX(), i.getP2().getCoordinateY());
 
                 }
+
+
             }
         });
         /*Clear lines */
