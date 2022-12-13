@@ -1,0 +1,26 @@
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The log has been generated correctly
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Starting load xml "./1 - simple gable roof.xml"
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The xml "./1 - simple gable roof.xml" has been loaded successfully.
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Starting create DTO for report G270917270146
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The DTO for report G270917270146 has been created successfully.
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Creating json "1 - simple gable roof.json"
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The json "1 - simple gable roof.json" has been created successfully.
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Starting load xml "./2 - more complex roof.xml"
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The xml "./2 - more complex roof.xml" has been loaded successfully.
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Starting create DTO for report G10052238844
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The DTO for report G10052238844 has been created successfully.
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: Creating json "2 - more complex roof.json"
+dic 12, 2022 9:24:51 P. M. Application.LogControl InfoLog
+INFORMACIÓN: The json "2 - more complex roof.json" has been created successfully.
