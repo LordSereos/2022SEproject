@@ -18,11 +18,6 @@ public class DrawLinesFromCords extends JComponent {
         final double y2;
         final Color Color;
 
-
-
-
-
-
         public Line2Draw(double x1, double y1, double x2, double y2, Color Color) {
             this.x1 = x1;
             this.y1 = y1;
@@ -66,7 +61,6 @@ public class DrawLinesFromCords extends JComponent {
         double maxx= -99999;
         double maxy= -99999;
         double max=0;
-        Color DefaultColor= java.awt.Color.BLACK;
         int h= getWidth();
         int w= getHeight();
 
@@ -154,6 +148,9 @@ public class DrawLinesFromCords extends JComponent {
         testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
 
 
+        ReadFromJSON data = new ReadFromJSON();
+        data.readPoints("./JSON_files/Data.json");
+
 
         newLineButton.addActionListener(new ActionListener() {
 
@@ -164,11 +161,24 @@ public class DrawLinesFromCords extends JComponent {
 
                 for (Line i : coordlist){
 
-                    comp.addLine(i.getP1().getCoordinateX(), i.getP1().getCoordinateY(), i.getP2().getCoordinateX(), i.getP2().getCoordinateY(), Color.BLACK);
+                    comp.addLine(i.getP1().getCoordinateX(), i.getP1().getCoordinateY(), i.getP2().getCoordinateX(), i.getP2().getCoordinateY(), 
+                            Color.BLUE);
+
+
 
 
                 }
+                for (int n = 0; n <data.getInfo().getRoofs().size(); n++) {
 
+                    comp.addLine(
+                            data.getInfo().getRoofs().get(n).getPoints().get(0).getCoordinateX(),
+                            data.getInfo().getRoofs().get(n).getPoints().get(0).getCoordinateY(),
+                            data.getInfo().getRoofs().get(n).getPoints().get(1).getCoordinateX(),
+                            data.getInfo().getRoofs().get(n).getPoints().get(1).getCoordinateY(),
+                            Color.BLACK );
+
+
+                }
 
             }
         });
@@ -187,8 +197,130 @@ public class DrawLinesFromCords extends JComponent {
             public void actionPerformed(ActionEvent e) {
 
 
-                ReadFromJSON data = new ReadFromJSON();
-                data.readPoints("./JSON_files/Data.json");
+
+
+
+
+                for (int i = 0; i <zoneOne.size(); i=i+4) {
+
+                    comp.addLine(
+                            zoneOne.get(i).getCoordinateX(),
+                            zoneOne.get(i).getCoordinateY(),
+                            zoneOne.get(i+1).getCoordinateX(),
+                            zoneOne.get(i+1).getCoordinateY(),
+                            Color.GREEN );
+                    comp.addLine(
+                            zoneOne.get(i+1).getCoordinateX(),
+                            zoneOne.get(i+1).getCoordinateY(),
+                            zoneOne.get(i+2).getCoordinateX(),
+                            zoneOne.get(i+2).getCoordinateY(),
+                            Color.GREEN );
+                    comp.addLine(
+                            zoneOne.get(i+2).getCoordinateX(),
+                            zoneOne.get(i+2).getCoordinateY(),
+                            zoneOne.get(i+3).getCoordinateX(),
+                            zoneOne.get(i+3).getCoordinateY(),
+                            Color.GREEN );
+                    comp.addLine(
+                            zoneOne.get(i+3).getCoordinateX(),
+                            zoneOne.get(i+3).getCoordinateY(),
+                            zoneOne.get(i).getCoordinateX(),
+                            zoneOne.get(i).getCoordinateY(),
+                            Color.GREEN );
+                    comp.addLine(
+                            zoneOne.get(i+1).getCoordinateX(),
+                            zoneOne.get(i+1).getCoordinateY(),
+                            zoneOne.get(i+3).getCoordinateX(),
+                            zoneOne.get(i+3).getCoordinateY(),
+                            Color.GREEN );
+                    comp.addLine(
+                            zoneOne.get(i+2).getCoordinateX(),
+                            zoneOne.get(i+2).getCoordinateY(),
+                            zoneOne.get(i).getCoordinateX(),
+                            zoneOne.get(i).getCoordinateY(),
+                            Color.GREEN );
+
+
+                }
+                for (int i = 0; i <zoneTwo.size(); i=i+4) {
+
+                    comp.addLine(
+                            zoneTwo.get(i).getCoordinateX(),
+                            zoneTwo.get(i).getCoordinateY(),
+                            zoneTwo.get(i + 1).getCoordinateX(),
+                            zoneTwo.get(i + 1).getCoordinateY(),
+                            Color.YELLOW);
+                    comp.addLine(
+                            zoneTwo.get(i + 1).getCoordinateX(),
+                            zoneTwo.get(i + 1).getCoordinateY(),
+                            zoneTwo.get(i + 2).getCoordinateX(),
+                            zoneTwo.get(i + 2).getCoordinateY(),
+                            Color.YELLOW);
+                    comp.addLine(
+                            zoneTwo.get(i + 2).getCoordinateX(),
+                            zoneTwo.get(i + 2).getCoordinateY(),
+                            zoneTwo.get(i + 3).getCoordinateX(),
+                            zoneTwo.get(i + 3).getCoordinateY(),
+                            Color.YELLOW);
+                    comp.addLine(
+                            zoneTwo.get(i + 3).getCoordinateX(),
+                            zoneTwo.get(i + 3).getCoordinateY(),
+                            zoneTwo.get(i).getCoordinateX(),
+                            zoneTwo.get(i).getCoordinateY(),
+                            Color.YELLOW);
+                    comp.addLine(
+                            zoneTwo.get(i + 1).getCoordinateX(),
+                            zoneTwo.get(i + 1).getCoordinateY(),
+                            zoneTwo.get(i + 3).getCoordinateX(),
+                            zoneTwo.get(i + 3).getCoordinateY(),
+                            Color.YELLOW);
+                    comp.addLine(
+                            zoneTwo.get(i + 2).getCoordinateX(),
+                            zoneTwo.get(i + 2).getCoordinateY(),
+                            zoneTwo.get(i).getCoordinateX(),
+                            zoneTwo.get(i).getCoordinateY(),
+                            Color.YELLOW);
+                }
+
+                for (int i = 0; i <zoneThree.size(); i=i+4) {
+
+                    comp.addLine(
+                            zoneThree.get(i).getCoordinateX(),
+                            zoneThree.get(i).getCoordinateY(),
+                            zoneThree.get(i + 1).getCoordinateX(),
+                            zoneThree.get(i + 1).getCoordinateY(),
+                            Color.RED);
+                    comp.addLine(
+                            zoneThree.get(i + 1).getCoordinateX(),
+                            zoneThree.get(i + 1).getCoordinateY(),
+                            zoneThree.get(i + 2).getCoordinateX(),
+                            zoneThree.get(i + 2).getCoordinateY(),
+                            Color.RED);
+                    comp.addLine(
+                            zoneThree.get(i + 2).getCoordinateX(),
+                            zoneThree.get(i + 2).getCoordinateY(),
+                            zoneThree.get(i + 3).getCoordinateX(),
+                            zoneThree.get(i + 3).getCoordinateY(),
+                            Color.RED);
+                    comp.addLine(
+                            zoneThree.get(i + 3).getCoordinateX(),
+                            zoneThree.get(i + 3).getCoordinateY(),
+                            zoneThree.get(i).getCoordinateX(),
+                            zoneThree.get(i).getCoordinateY(),
+                            Color.RED);
+                    comp.addLine(
+                            zoneThree.get(i + 1).getCoordinateX(),
+                            zoneThree.get(i + 1).getCoordinateY(),
+                            zoneThree.get(i + 3).getCoordinateX(),
+                            zoneThree.get(i + 3).getCoordinateY(),
+                            Color.RED);
+                    comp.addLine(
+                            zoneThree.get(i + 2).getCoordinateX(),
+                            zoneThree.get(i + 2).getCoordinateY(),
+                            zoneThree.get(i).getCoordinateX(),
+                            zoneThree.get(i).getCoordinateY(),
+                            Color.RED);
+                }
 
                 for (int i = 0; i <data.getInfo().getRoofs().size(); i++) {
 
@@ -201,40 +333,8 @@ public class DrawLinesFromCords extends JComponent {
 
 
                 }
-                for (int i = 0; i <zoneOne.size()-1; i=i+2) {
-
-                    comp.addLine(
-                            zoneOne.get(i).getCoordinateX(),
-                            zoneOne.get(i).getCoordinateY(),
-                            zoneOne.get(i+1).getCoordinateX(),
-                            zoneOne.get(i+1).getCoordinateY(),
-                            Color.GREEN );
-
-
-                }
-                for (int i = 0; i <zoneTwo.size()-1; i=i+2) {
-
-                    comp.addLine(
-                            zoneTwo.get(i).getCoordinateX(),
-                            zoneTwo.get(i).getCoordinateY(),
-                            zoneTwo.get(i+1).getCoordinateX(),
-                            zoneTwo.get(i+1).getCoordinateY(),
-                            Color.YELLOW );
-
-
-                }
-                for (int i = 0; i <zoneThree.size()-1; i=i+2) {
-
-                    comp.addLine(
-                            zoneThree.get(i).getCoordinateX(),
-                            zoneThree.get(i).getCoordinateY(),
-                            zoneThree.get(i+1).getCoordinateX(),
-                            zoneThree.get(i+1).getCoordinateY(),
-                            Color.RED );
-
-
-                }
             }
+
         });
 
 
