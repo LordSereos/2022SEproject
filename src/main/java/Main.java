@@ -22,7 +22,6 @@ public class Main {
 
         RectangleCoordinates roof = new RectangleCoordinates();
 
-
         roof.findCordinates("C6", "C5", "C1");
         roof.findCordinates("C5", "C2", "C6");
         roof.findCordinates("C2", "C1", "C5");
@@ -33,9 +32,20 @@ public class Main {
         roof.findCordinates("C3", "C4", "C2");
         roof.findCordinates("C4", "C1", "C3");
 
-        roof.printZoneOne();
-        roof.printZoneTwo();
-        roof.printZoneThree();
+        for(int i = 0; i < roof.getZoneOne().size(); i++) {
+            System.out.println(i+1 + " " + roof.getZoneOne().get(i));
+        }
+        System.out.println();
+
+        for(int i = 0; i < roof.getZoneTwo().size(); i++) {
+            System.out.println(i+1 + " " + roof.getZoneTwo().get(i));
+        }
+        System.out.println();
+
+        for(int i = 0; i < roof.getZoneThree().size(); i++) {
+            System.out.println(i+1 + " " + roof.getZoneThree().get(i));
+        }
+        System.out.println();
 
         FormatPdf formatPdf = new FormatPdf();
         formatPdf.PrintPdf();
