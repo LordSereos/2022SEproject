@@ -89,9 +89,7 @@ public class RectangleCoordinates {
     }
 
     private void putCoordinatesIntoZoneTwo(String mainCoordinateName, RectangleCoordinates t1, RectangleCoordinates t2, RectangleCoordinates t4) {
-        ZoneTwo.add(new Point(data.getPointStorage().get(mainCoordinateName).getCoordinateX(),
-                data.getPointStorage().get(mainCoordinateName).getCoordinateY(),
-                data.getPointStorage().get(mainCoordinateName).getCoordinateZ()));
+        ZoneTwo.add(new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
         ZoneTwo.add(new Point(t1.borderCoordinateX(), t1.borderCoordinateY(), t1.borderCoordinateZ()));
         ZoneTwo.add(new Point(t2.borderCoordinateX(), t2.borderCoordinateY(), t2.borderCoordinateZ()));
         ZoneTwo.add(new Point(t4.innerCornerCoordinateX(), t4.innerCornerCoordinateY(), t4.innerCornerCoordinateZ()));
