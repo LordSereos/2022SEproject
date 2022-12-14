@@ -51,7 +51,7 @@ public class Main {
         formatPdf.PrintPdf();
 
         DrawLinesFromCords drawLinesFromCords = new DrawLinesFromCords();
-        drawLinesFromCords.Launch(lines);
+        drawLinesFromCords.Launch(lines, roof.getZoneOne(), roof.getZoneTwo(), roof.getZoneThree());
 
     }
 

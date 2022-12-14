@@ -135,7 +135,7 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
-    public void Launch(List<Line> coordlist) {
+    public void Launch(List<Line> coordlist, List<Point> zoneOne, List<Point> zoneTwo, List<Point> zoneThree) {
 
         System.out.println(coordlist.get(0));
 
@@ -197,7 +197,41 @@ public class DrawLinesFromCords extends JComponent {
                             data.getInfo().getRoofs().get(i).getPoints().get(0).getCoordinateY(),
                             data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateX(),
                             data.getInfo().getRoofs().get(i).getPoints().get(1).getCoordinateY(),
+                            Color.BLACK );
+
+
+                }
+                for (int i = 0; i <zoneOne.size()-1; i=i+2) {
+
+                    comp.addLine(
+                            zoneOne.get(i).getCoordinateX(),
+                            zoneOne.get(i).getCoordinateY(),
+                            zoneOne.get(i+1).getCoordinateX(),
+                            zoneOne.get(i+1).getCoordinateY(),
                             Color.GREEN );
+
+
+                }
+                for (int i = 0; i <zoneTwo.size()-1; i=i+2) {
+
+                    comp.addLine(
+                            zoneTwo.get(i).getCoordinateX(),
+                            zoneTwo.get(i).getCoordinateY(),
+                            zoneTwo.get(i+1).getCoordinateX(),
+                            zoneTwo.get(i+1).getCoordinateY(),
+                            Color.YELLOW );
+
+
+                }
+                for (int i = 0; i <zoneThree.size()-1; i=i+2) {
+
+                    comp.addLine(
+                            zoneThree.get(i).getCoordinateX(),
+                            zoneThree.get(i).getCoordinateY(),
+                            zoneThree.get(i+1).getCoordinateX(),
+                            zoneThree.get(i+1).getCoordinateY(),
+                            Color.RED );
+
 
                 }
             }
