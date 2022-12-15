@@ -20,14 +20,10 @@ public class Coplanar {
         // checking if the 4th podouble   satisfies
         // the above equation
         boolean coplanar;
-        System.out.println(a * x + b * y + c * z + d);
         if (a * x + b * y + c * z + d >= -0.01 && 0.01 >= (a * x + b * y + c * z + d)) {
-            System.out.println("Coplanar");
             coplanar = true;
 
         } else {
-            System.out.println("Not Coplanar");
-
 
             coplanar = false;
 
