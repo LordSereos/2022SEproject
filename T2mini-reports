@@ -206,3 +206,17 @@ everyone successfully finished their responsibility and we managed to finish eve
    *Implement paralel line logic (maybe)
    
    4) Status: YELLOW
+   
+   2022/12/09
+   1) What was done?
+   *Updated specifications
+   *Merged all areas
+   *Prototype works for a simple roof
+   
+   2) What issues/blockers did we face?
+   *The prototype of final product works buggy with a complicated roof - scenario won't be implemented in time.
+   
+   3) Goal for next week:
+   *Find the best way to present and describe the work of our area
+   
+   4) Status: YELLOW (we didn't finish the complicated roof scenarios but its working for a simple one)
