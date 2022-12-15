@@ -161,7 +161,7 @@ This week we prepared our part of the mid-term project presentation. In order to
 and a meeting of our team members as well. Nevertheless, we also made some progress on the software and its testing.
 
 What issues/risks/blockers do you have?
-We had trouble communicating between teams and getting everyone to send their parts. TConcequentally, the project
+We had trouble communicating between teams and getting everyone to send their parts. Concequentally, the project
 presentation was finished late in the week and thus, there was little time to prepare the speech.
 
 Goals for next week:
@@ -185,7 +185,7 @@ Implement functionalities to support complex roof types, look into merging of ot
 Status: GREEN
 
 
-2002/12/02
+2022/12/02
 
 What was done?
 Documented logic behind the software, so that everyone in our team can understand it easier.
@@ -208,7 +208,7 @@ Started remaking official documentation.
 Fixed some code issues and continued software development.
 
 What issues/risks/blockers did we face?
-Had some time constraints.
+After more testing, we found that some parts of the implementation logic were flawed and had to be rewritten.
 
 Goals for next week:
 Try to finish coding.
@@ -216,3 +216,23 @@ Implement more automated tests.
 Finish remaking official documentation.
 
 Status: YELLOW
+
+
+2022/12/09
+
+What was done?
+Finished rewriting official documentation.
+Worked with Area5 to make sure our results can be presented visually.
+Advanced a lot in implementing logic for other roof types.
+
+What issues/risks/blockers did we face?
+There were some issues displaying level 2 zones visually, there are several solutions to this problem and we are still trying
+to decide what is the best choice.
+
+Goals for next week:
+Finish recreating diagrams.
+Finish coding and debugging.
+More testing.
+Finish final project presentation.
+
+Status: GREEN/YELLOW
