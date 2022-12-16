@@ -116,5 +116,25 @@ Goals for next week
 	*change the data model and send it to team 2
 
 STATUS: RED/YELLOW
+----------------------------------------------------------------------------------------------------------------------
+Week 08/12/2022
+What was done?
+	*we have tried to move forward with automated tests
+	*we have fixed some errors in our code.
+	*we made some changes in our java code like delete methods.
+	*We help team 2, sending them our json results after doing the changes
+	*correct compilation of the executable.jar and the code in java
+	
 
+What issues/blockers did we face?
+	*correct compilation of the executable but we had problems with formatting our json models
+	*low availability of members this week for various reasons
+	*much of our code like classes and methods are left over.
+
+Goals for next week
+	*make in the power point our part of the presentation for the following Tuesday
+	*prepare well the speech
+
+STATUS: YELLOW
+---------------------------------------------------------------------------------------------------------------------
 
