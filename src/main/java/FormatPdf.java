@@ -3,6 +3,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 public class FormatPdf {
 
@@ -13,16 +14,26 @@ public class FormatPdf {
         //Get Local Directory
         String LOCAL_DIRECTORY = System.getProperty("user.dir");
         //pdf file path
-        String FILE_NAME = LOCAL_DIRECTORY + "\\SolarPanel\\PdfDocs\\doc.pdf";
+        String FILE_NAME = LOCAL_DIRECTORY + "/SolarPanel/PdfDocs/Solar Panel Placement.pdf";
         //Image path
-        String IMAGE_PATH = LOCAL_DIRECTORY+ "\\SolarPanel\\Images\\testimage.png";
-        //Check if image file is valid
-        if(IMAGE_PATH.endsWith(".png")
-                || IMAGE_PATH.endsWith(".jpeg")) {
+        String IMAGE_DIR_PATH = LOCAL_DIRECTORY+ "/SolarPanel/Images";
+
+        File imgDirectory = new File(IMAGE_DIR_PATH);
+
+        File[] files = imgDirectory.listFiles();
+
+        ArrayList<File> imageFiles = new ArrayList<File>();
+
+        for (File file:
+             files) {
+            if (file.getName().endsWith(".png")){
+                imageFiles.add(file);
+            }
+        }
 
             Document document = new Document();
             try {
-                //Create a pdfwriter to the pdf file
+                //Create a pdfwriter to write to the pdf file
                 PdfWriter.getInstance(document, new FileOutputStream(new File(FILE_NAME)));
                 //open pdf document
                 document.open();
@@ -35,20 +46,21 @@ public class FormatPdf {
                 p.setAlignment(Element.ALIGN_CENTER);
                 document.add(p);
 
-                //Add image
-                Image image = Image.getInstance(IMAGE_PATH);
-                image.scaleToFit(PageSize.A5);
-                image.setAlignment(1);
-                document.add(image);
-
-
-                //Create paragraph
-                font.setSize(12);
-                Paragraph p2 = new Paragraph("Paragraph text\n" +
-                        "New line text", font);
-
-                //Add paragraph
-                document.add(p2);
+                //Add images with names
+                Paragraph[] imagenames = new Paragraph().toArray(new Paragraph[files.length]);
+                int i = 0;
+                for (File file:
+                        imageFiles) {
+                    Image image = Image.getInstance(file.getPath());
+                    image.scaleToFit(PageSize.A5);
+                    imagenames[i] = new Paragraph("", font);
+                    imagenames[i].add(file.getName().substring(0, file.getName().length()- 4));
+                    imagenames[i].setAlignment(Element.ALIGN_LEFT);
+                    document.add(imagenames[i]);
+                    image.setAlignment(1);
+                    document.add(image);
+                    i += 1;
+                }
 
                 //close document
                 document.close();
@@ -57,8 +69,5 @@ public class FormatPdf {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
-            System.out.println("Invalid Image file type");
-        }
     }
 }

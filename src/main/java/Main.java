@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
 
@@ -47,8 +47,6 @@ public class Main {
         }
         System.out.println();
 
-        FormatPdf formatPdf = new FormatPdf();
-        formatPdf.PrintPdf();
 
         DrawLinesFromCords drawLinesFromCords = new DrawLinesFromCords();
         drawLinesFromCords.Launch(lines, roof.getZoneOne(), roof.getZoneTwo(), roof.getZoneThree());

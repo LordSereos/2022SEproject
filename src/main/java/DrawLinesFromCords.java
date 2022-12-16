@@ -6,7 +6,9 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 public class DrawLinesFromCords extends JComponent {
 
@@ -149,7 +151,24 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
-    public void Launch(List<Line> coordlist, List<Point> zoneOne, List<Point> zoneTwo, List<Point> zoneThree) {
+    /*public static BufferedImage getScreenShot(Component component) {
+
+        //return croppedImage;
+    }
+    */
+    public static void getSaveSnapShot(Component component, String fileName) throws Exception {
+        BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_BGR);
+        int width = image.getWidth();
+        int height = image.getHeight();
+        BufferedImage croppedImage = image.getSubimage(0, 0, width, height-40);
+        // paints into image's Graphics
+        component.paint(croppedImage.getGraphics());
+        // write the captured image as a PNG
+        ImageIO.write(croppedImage, "png", new File(fileName));
+    }
+
+
+    public void Launch(List<Line> coordlist, List<Point> zoneOne, List<Point> zoneTwo, List<Point> zoneThree) throws Exception{
 
 
         JFrame testFrame = new JFrame();                            /*Initializes JFrame*/
@@ -162,10 +181,14 @@ public class DrawLinesFromCords extends JComponent {
         JButton clearButton = new JButton("Clear");
         JButton drawroof = new JButton("Draw roof with wind zones");
         JButton drawlayout = new JButton("Draw roof layout");
+        JButton saveImgButton = new JButton("Save Image");
+        JButton formatPdfButton = new JButton("Format Pdf");
         buttonsPanel.add(newLineButton);
         buttonsPanel.add(clearButton);
         buttonsPanel.add(drawroof);
         buttonsPanel.add(drawlayout);
+        buttonsPanel.add(saveImgButton);
+        buttonsPanel.add(formatPdfButton);
         testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
 
 
@@ -178,11 +201,15 @@ public class DrawLinesFromCords extends JComponent {
 
         linesOfFaces.addAll(faces.FacesFromCoords(data));
 
-        newLineButton.addActionListener(new ActionListener() {
+        final String[] currView = {"empty"};
+        final String[] allView = {""};
 
+        newLineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                currView[0] = "Roof";
+                allView[0] = "Roof";
 
                 for (Line i : coordlist) {
 
@@ -212,18 +239,19 @@ public class DrawLinesFromCords extends JComponent {
         });
         /*Clear lines */
         clearButton.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
+                currView[0] = "empty";
+                allView[0] = "";
                 comp.clearLines();
             }
         });
         drawroof.addActionListener(new ActionListener() {
-
             /*Same as newline*/
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                currView[0] = "Wind Zones";
+                allView[0] += " " + currView[0];
 
                 for (int i = 0; i < zoneOne.size(); i = i + 4) {
 
@@ -362,10 +390,10 @@ public class DrawLinesFromCords extends JComponent {
         });
 
         drawlayout.addActionListener(new ActionListener() {
-
-
             @Override
             public void actionPerformed(ActionEvent e) {
+                currView[0] = "Layout";
+                allView[0] += currView[0];
                 comp.clearLines();
                 double maxyVal1 = 0;
                 double maxyVal2 = 0;
@@ -442,6 +470,32 @@ public class DrawLinesFromCords extends JComponent {
             }
         });
 
+        // Save Image
+        saveImgButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(allView[0] != "") {
+                    String img = "./SolarPanel/Images/" + currView[0] + ".png";
+                    try {
+                        getSaveSnapShot(testFrame.getContentPane(), img);
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                }
+                else {
+                    System.out.println("Current View is empty!");
+                }
+            }
+        });
+
+        FormatPdf formatPdf = new FormatPdf();
+
+        formatPdfButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formatPdf.PrintPdf();
+            }
+        });
 
         testFrame.pack();
         testFrame.setVisible(true);
