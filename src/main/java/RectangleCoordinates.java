@@ -5,7 +5,7 @@ public class RectangleCoordinates {
     private double x1, y1, z1, x2, y2, z2, ratio;
     private MeanRoofHeight roofHeight = new MeanRoofHeight();
     private Point point = new Point();
-    private ReadFromJSON data = new ReadFromJSON();
+    private JsonReader data = new JsonReader();
     private static List<Point> ZoneOne = new ArrayList<>();
     private static List<Point> ZoneTwo = new ArrayList<>();
     private static List<Point> ZoneThree = new ArrayList<>();

@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        ReadFromJSON data = new ReadFromJSON();
+        JsonReader data = new JsonReader();
         data.readPoints("./JSON_files/Data.json");
 
         List<Line> lines = new ArrayList<>();
@@ -32,18 +32,18 @@ public class Main {
         roof.findCordinates("C3", "C4", "C2");
         roof.findCordinates("C4", "C1", "C3");
 
-        for(int i = 0; i < roof.getZoneOne().size(); i++) {
-            System.out.println(i+1 + " " + roof.getZoneOne().get(i));
+        for (int i = 0; i < roof.getZoneOne().size(); i++) {
+            System.out.println(i + 1 + " " + roof.getZoneOne().get(i));
         }
         System.out.println();
 
-        for(int i = 0; i < roof.getZoneTwo().size(); i++) {
-            System.out.println(i+1 + " " + roof.getZoneTwo().get(i));
+        for (int i = 0; i < roof.getZoneTwo().size(); i++) {
+            System.out.println(i + 1 + " " + roof.getZoneTwo().get(i));
         }
         System.out.println();
 
-        for(int i = 0; i < roof.getZoneThree().size(); i++) {
-            System.out.println(i+1 + " " + roof.getZoneThree().get(i));
+        for (int i = 0; i < roof.getZoneThree().size(); i++) {
+            System.out.println(i + 1 + " " + roof.getZoneThree().get(i));
         }
         System.out.println();
 
