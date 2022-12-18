@@ -28,7 +28,7 @@ public class MeanRoofHeight {
     public double getMeanHeight() {
         return (getHeighestZCoordinate() + getLowestZCoordinate()) / 2;
     }
-
+// wind pressure zone width = a
     public double getWidthOfWindZone() {
         if (getMeanHeight() >= 3.0)
             return 0.4 * getMeanHeight();
