@@ -494,14 +494,8 @@ public class DrawLinesFromCords extends JComponent {
                                 );
 
                             }
-
-
                         }
-
-
                     }
-
-
                 }
             }
         });
