@@ -49,7 +49,7 @@ public class DrawLinesFromCords extends JComponent {
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g.create();
-        JsonReader data = new JsonReader();
+        ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
         RectangleCoordinates roof = new RectangleCoordinates();
 
@@ -210,7 +210,7 @@ public class DrawLinesFromCords extends JComponent {
         frame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
         frame.getContentPane().add(checkBoxesPanel, BorderLayout.EAST);   /*Add checkBoxesPanel to Jframe*/
 
-        JsonReader data = new JsonReader();
+        ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
 
         GetFaces faces = new GetFaces();

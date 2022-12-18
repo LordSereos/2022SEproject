@@ -1,5 +1,5 @@
 public class MeanRoofHeight {
-    public final JsonReader data = new JsonReader();
+    public final ReadFromJSON data = new ReadFromJSON();
 
     public MeanRoofHeight() {
 

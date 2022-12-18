@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class GetFaces {
 
-    public List<Line> FacesFromCoords(JsonReader Roof) {
+    public List<Line> FacesFromCoords(ReadFromJSON Roof) {
 
         List<Line> FacesFromCoords = new ArrayList<>();
 

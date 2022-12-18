@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MeanRoofHeightTest {
     @BeforeAll
     public static void initializeDataFromJson() {
-        var data = new JsonReader();
+        var data = new ReadFromJSON();
         //specify data source
         data.readPoints("./JSON_files/Data.json");
     }

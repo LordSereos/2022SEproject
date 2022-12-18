@@ -1,10 +1,12 @@
 
 import com.google.gson.Gson;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-public class JsonReader {
+public class ReadFromJSON {
     private static HashMap<String, Point> pointStorage = new HashMap<>();
     private static ArrayList<Roof> roof = new ArrayList<>();
     private static InputStructure info = new InputStructure();
