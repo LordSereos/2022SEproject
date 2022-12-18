@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RectangleCoordinatesTest {
     @BeforeAll
     public static void initializeDataFromJson() {
-        var data = new ReadFromJSON();
+        var data = new JsonReader();
         //specify data source
         data.readPoints("./JSON_files/Data.json");
     }

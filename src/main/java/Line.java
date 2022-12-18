@@ -12,9 +12,9 @@ public class Line {
      * From the default parameters, we can calculate the vector of that line,
      * its length, point vector of the RIDGE point and the setback point
      * coordinates (3 feet from RIDGE on that line)
-     *
-     *  v is the vector between p1 and p2
-     *  u is the point vector from the RIDGE point (p1)
+     * <p>
+     * v is the vector between p1 and p2
+     * u is the point vector from the RIDGE point (p1)
      */
     private Point v = new Point();
     private double length;
@@ -27,7 +27,7 @@ public class Line {
     public Line(String id, String type, Point point1, Point point2) {
         this.id = id;
         this.type = type;
-        if(point1.getCoordinateZ() > point2.getCoordinateZ()) {
+        if (point1.getCoordinateZ() > point2.getCoordinateZ()) {
             this.p1 = point1;
             this.p2 = point2;
         } else {
@@ -79,44 +79,49 @@ public class Line {
         this.p2 = p2;
     }
 
-    public void setV(Point p1, Point p2){
-        v.setId("V"+id.charAt(1));
-        v.setCoordinateX(p2.getCoordinateX()- p1.getCoordinateX());
-        v.setCoordinateY(p2.getCoordinateY()- p1.getCoordinateY());
-        v.setCoordinateZ(p2.getCoordinateZ()- p1.getCoordinateZ());
+    public void setV(Point p1, Point p2) {
+        v.setId("V" + id.charAt(1));
+        v.setCoordinateX(p2.getCoordinateX() - p1.getCoordinateX());
+        v.setCoordinateY(p2.getCoordinateY() - p1.getCoordinateY());
+        v.setCoordinateZ(p2.getCoordinateZ() - p1.getCoordinateZ());
     }
-    public Point getV(){
+
+    public Point getV() {
         return v;
     }
 
-    public void setLength(Point v){
-        length = Math.sqrt(v.getCoordinateX()*v.getCoordinateX() +
-                v.getCoordinateY()*v.getCoordinateY() +
-                v.getCoordinateZ()*v.getCoordinateZ());
+    public void setLength(Point v) {
+        length = Math.sqrt(v.getCoordinateX() * v.getCoordinateX() +
+                v.getCoordinateY() * v.getCoordinateY() +
+                v.getCoordinateZ() * v.getCoordinateZ());
     }
-    public double getLength(){
+
+    public double getLength() {
         return length;
     }
-    public void setU(Point v, double length){
+
+    public void setU(Point v, double length) {
         u.setCoordinateX(v.getCoordinateX() / length);
         u.setCoordinateY(v.getCoordinateY() / length);
         u.setCoordinateZ(v.getCoordinateZ() / length);
-        u.setId("U"+id.charAt(1));
+        u.setId("U" + id.charAt(1));
     }
-    public Point getU(){
+
+    public Point getU() {
         return u;
     }
 
-    public void setSetbackCoordinates(Point u){
+    public void setSetbackCoordinates(Point u) {
         double f = 3.0;
 
-        setback.setCoordinateX(u.getCoordinateX()*f + p1.getCoordinateX());
-        setback.setCoordinateY(u.getCoordinateY()*f + p1.getCoordinateY());
-        setback.setCoordinateZ(u.getCoordinateZ()*f + p1.getCoordinateZ());
-        setback.setId("S"+id.charAt(1));
+        setback.setCoordinateX(u.getCoordinateX() * f + p1.getCoordinateX());
+        setback.setCoordinateY(u.getCoordinateY() * f + p1.getCoordinateY());
+        setback.setCoordinateZ(u.getCoordinateZ() * f + p1.getCoordinateZ());
+        setback.setId("S" + id.charAt(1));
 
     }
-    public Point getSetbackCoordinates(){
+
+    public Point getSetbackCoordinates() {
         return setback;
     }
 
@@ -133,7 +138,8 @@ public class Line {
                 ", setback=" + setback +
                 '}';
     }
-    public String customToString(){
+
+    public String customToString() {
         return "Line " + id + " is " + type + ". Its vector is: " + v.getCoordinateX() + " " + v.getCoordinateY() + " " + v.getCoordinateZ() + ", u: " + u.getCoordinateX() + " " + u.getCoordinateY() + " " + u.getCoordinateZ() + " \n" +
                 "                 length is: " + length + " and our setback coordinates are: " + setback.getCoordinateX() + " " + setback.getCoordinateY() + " " + setback.getCoordinateZ() + " " + setback.getId();
     }

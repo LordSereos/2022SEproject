@@ -35,8 +35,8 @@ public class FormSetbackArea {
          * .get(0) and .get(1) represent different rectangles for one RIDGE
          */
         for (int i=0;i<rectangles.size();i++){
-            FindCoplanarVector(rectangles.get(i).get(0), lines);
-            FindCoplanarVector(rectangles.get(i).get(1), lines);
+            findCoplanarVector(rectangles.get(i).get(0), lines);
+            findCoplanarVector(rectangles.get(i).get(1), lines);
         }
     }
 
@@ -60,7 +60,7 @@ public class FormSetbackArea {
                 int n=2;
                 for (Point z : cluster.subList(n+1,6)){
                     if (cluster.indexOf(j) < cluster.indexOf(z)){
-                        if (PointsFormRectangle(r1, r2, j, z)){
+                        if (pointsFormRectangle(r1, r2, j, z)){
                             rectangles.get(i).add(new Rectangle(r1, r2, j, z));
                         }
                     }
@@ -121,7 +121,7 @@ public class FormSetbackArea {
         }
     }
 
-    public boolean PointsFormRectangle(Point r1, Point r2, Point s1, Point s2){
+    public boolean pointsFormRectangle(Point r1, Point r2, Point s1, Point s2){
         /**
          * Complicated yet efficient way to find if 4 points in 3D space form a rectangle, not just connect randomly.
          *
@@ -163,7 +163,7 @@ public class FormSetbackArea {
         else return false;
     }
 
-    public void FindCoplanarVector(Rectangle rectangle,List<Line> lines){
+    public void findCoplanarVector(Rectangle rectangle,List<Line> lines){
         lines.add(new Line("L"+(lines.size()+1), "SETBACK_LINE", rectangle.getS1(), rectangle.getS2()));
     }
 

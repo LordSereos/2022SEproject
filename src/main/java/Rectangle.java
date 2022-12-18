@@ -1,7 +1,7 @@
 /**
  * An intermediary class for creating object Rectangle, which is needed to form rectangles on the roof using two
  * points of RIDGE r1 r2 and other setback points, that we calculated in Lines class for every RAKE.
- *
+ * <p>
  * There can be a lot of combinations between RIDGE and setback points, and if rectangles can be formed, then the
  * combination is correct.
  */
