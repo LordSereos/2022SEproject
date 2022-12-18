@@ -1,6 +1,5 @@
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -22,14 +21,26 @@ public class FormatPdf {
 
         File[] files = imgDirectory.listFiles();
 
+        if(files.length<1)
+        {
+            System.out.println("No files found in 'Images' directory");
+            return;
+        }
+
         ArrayList<File> imageFiles = new ArrayList<File>();
 
-        for (File file:
-             files) {
-            if (file.getName().endsWith(".png")){
-                imageFiles.add(file);
+
+
+            for (File file:
+                    files) {
+                if (file.getName().endsWith(".png")){
+                    imageFiles.add(file);
+                }
             }
-        }
+            if(imageFiles.size()<1) {
+                System.out.println("No images with 'png' format were found in 'Images' directory");
+                return;
+            }
 
             Document document = new Document();
             try {

@@ -32,7 +32,7 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
-    /*Lines from buttons is stored inside LinkedList*/
+    /*Lines from buttons are stored inside LinkedList*/
     private final LinkedList<Line2Draw> Line2Draw = new LinkedList<Line2Draw>();
 
 
@@ -151,46 +151,66 @@ public class DrawLinesFromCords extends JComponent {
     }
 
 
-    /*public static BufferedImage getScreenShot(Component component) {
-
-        //return croppedImage;
-    }
-    */
     public static void getSaveSnapShot(Component component, String fileName) throws Exception {
         BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_BGR);
         int width = image.getWidth();
         int height = image.getHeight();
-        BufferedImage croppedImage = image.getSubimage(0, 0, width, height-40);
+        BufferedImage croppedImage = image.getSubimage(0, 0, width-210, height-40);
         // paints into image's Graphics
         component.paint(croppedImage.getGraphics());
         // write the captured image as a PNG
         ImageIO.write(croppedImage, "png", new File(fileName));
     }
 
+    public static void SaveImgFromButton(String view, JFrame frame){
+        if(view != "") {
+            String img = "./SolarPanel/Images/" + view + ".png";
+            try {
+                getSaveSnapShot(frame.getContentPane(), img);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+        else {
+            System.out.println("Current View is empty!");
+        }
+    }
 
     public void Launch(List<Line> coordlist, List<Point> zoneOne, List<Point> zoneTwo, List<Point> zoneThree) throws Exception{
 
 
-        JFrame testFrame = new JFrame();                            /*Initializes JFrame*/
-        testFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JFrame frame = new JFrame();                            /*Initializes JFrame*/
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         final DrawLinesFromCords comp = new DrawLinesFromCords();
         comp.setPreferredSize(new Dimension(600, 400));
-        testFrame.getContentPane().add(comp, BorderLayout.CENTER);
+        frame.getContentPane().add(comp, BorderLayout.CENTER);
         JPanel buttonsPanel = new JPanel();                         /*Initializes Jpanel*/
-        JButton newLineButton = new JButton("Roof");
+        JButton drawRoofWithFireEscape = new JButton("Roof");
         JButton clearButton = new JButton("Clear");
-        JButton drawroof = new JButton("Draw roof with wind zones");
-        JButton drawlayout = new JButton("Draw roof layout");
-        JButton saveImgButton = new JButton("Save Image");
+        JButton drawRoofWithWindZones = new JButton("Draw roof with wind zones");
+        JButton drawLayout = new JButton("Draw roof layout");
+        JButton saveImgButton = new JButton("Save Images");
         JButton formatPdfButton = new JButton("Format Pdf");
-        buttonsPanel.add(newLineButton);
+        buttonsPanel.add(drawRoofWithFireEscape);
         buttonsPanel.add(clearButton);
-        buttonsPanel.add(drawroof);
-        buttonsPanel.add(drawlayout);
+        buttonsPanel.add(drawRoofWithWindZones);
+        buttonsPanel.add(drawLayout);
         buttonsPanel.add(saveImgButton);
         buttonsPanel.add(formatPdfButton);
-        testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
-
+        JPanel checkBoxesPanel = new JPanel();
+        checkBoxesPanel.setLayout(new BoxLayout(checkBoxesPanel, BoxLayout.Y_AXIS));
+        checkBoxesPanel.setSize(200, 400);
+        JCheckBox roofLayoutBox = new JCheckBox("Layout");
+        JCheckBox roofFireEscapeBox = new JCheckBox("Fire Ventilation");
+        JCheckBox roofWindZonesBox = new JCheckBox("Wind Zones");
+        JCheckBox roofFireEscapeWindZoneBox = new JCheckBox("Fire Ventilation and Wind Zones");
+        checkBoxesPanel.add(new JLabel("What Images do you want to save?"));
+        checkBoxesPanel.add(roofLayoutBox);
+        checkBoxesPanel.add(roofFireEscapeBox);
+        checkBoxesPanel.add(roofWindZonesBox);
+        checkBoxesPanel.add(roofFireEscapeWindZoneBox);
+        frame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);   /*Add buttonPanel to Jframe*/
+        frame.getContentPane().add(checkBoxesPanel, BorderLayout.EAST);   /*Add checkBoxesPanel to Jframe*/
 
         ReadFromJSON data = new ReadFromJSON();
         data.readPoints("./JSON_files/Data.json");
@@ -202,14 +222,22 @@ public class DrawLinesFromCords extends JComponent {
         linesOfFaces.addAll(faces.FacesFromCoords(data));
 
         final String[] currView = {"empty"};
-        final String[] allView = {""};
+        final String[] allView = {"Roof"};
 
-        newLineButton.addActionListener(new ActionListener() {
+        drawRoofWithFireEscape.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                currView[0] = "Roof";
-                allView[0] = "Roof";
+                if (currView[0] == "Layout")
+                {
+                    comp.clearLines();
+                    allView[0] = "Roof";
+                }
+                if (currView[0] == "empty")
+                {
+                    allView[0] = "Roof";
+                }
+                currView[0] = ", Fire Ventilation Setbacks";
+                allView[0] += currView[0];
 
                 for (Line i : coordlist) {
 
@@ -242,16 +270,24 @@ public class DrawLinesFromCords extends JComponent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currView[0] = "empty";
-                allView[0] = "";
+                allView[0] = "Roof";
                 comp.clearLines();
             }
         });
-        drawroof.addActionListener(new ActionListener() {
-            /*Same as newline*/
+        drawRoofWithWindZones.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currView[0] = "Wind Zones";
-                allView[0] += " " + currView[0];
+                if (currView[0] == "Layout")
+                {
+                    comp.clearLines();
+                    allView[0] = "Roof";
+                }
+                if (currView[0] == "empty")
+                {
+                    allView[0] = "Roof";
+                }
+                currView[0] = ", Wind Zones";
+                allView[0] += currView[0];
 
                 for (int i = 0; i < zoneOne.size(); i = i + 4) {
 
@@ -389,11 +425,11 @@ public class DrawLinesFromCords extends JComponent {
 
         });
 
-        drawlayout.addActionListener(new ActionListener() {
+        drawLayout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currView[0] = "Layout";
-                allView[0] += currView[0];
+                allView[0] = "Roof " + currView[0];
                 comp.clearLines();
                 double maxyVal1 = 0;
                 double maxyVal2 = 0;
@@ -474,16 +510,30 @@ public class DrawLinesFromCords extends JComponent {
         saveImgButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(allView[0] != "") {
-                    String img = "./SolarPanel/Images/" + currView[0] + ".png";
-                    try {
-                        getSaveSnapShot(testFrame.getContentPane(), img);
-                    } catch (Exception exception) {
-                        exception.printStackTrace();
-                    }
+                clearButton.doClick();
+                if(roofLayoutBox.isSelected()) {
+                    clearButton.doClick();
+                    drawLayout.doClick();
+                    SaveImgFromButton(allView[0], frame);
                 }
-                else {
-                    System.out.println("Current View is empty!");
+
+                if(roofFireEscapeBox.isSelected()) {
+                    clearButton.doClick();
+                    drawRoofWithFireEscape.doClick();
+                    SaveImgFromButton(allView[0], frame);
+                }
+
+                if(roofFireEscapeWindZoneBox.isSelected()) {
+                    clearButton.doClick();
+                    drawRoofWithFireEscape.doClick();
+                    drawRoofWithWindZones.doClick();
+                    SaveImgFromButton(allView[0], frame);
+                }
+
+                if(roofWindZonesBox.isSelected()) {
+                    clearButton.doClick();
+                    drawRoofWithWindZones.doClick();
+                    SaveImgFromButton(allView[0], frame);
                 }
             }
         });
@@ -497,8 +547,8 @@ public class DrawLinesFromCords extends JComponent {
             }
         });
 
-        testFrame.pack();
-        testFrame.setVisible(true);
+        frame.pack();
+        frame.setVisible(true);
     }
 
 }
