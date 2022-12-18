@@ -323,11 +323,11 @@ public class DrawLinesFromCords extends JComponent {
 
 
                 }
-                    for (int i = 2; i+20< zoneTwo.size(); i = i + 4) {
+                    for (int i = 0; i< zoneTwo.size(); i = i + 4) {
                         if (i + 6 < zoneTwo.size()) {
                             comp.addLine(
-                                    zoneTwo.get(i-1).getCoordinateX(),
-                                    zoneTwo.get(i-1).getCoordinateY(),
+                                    zoneTwo.get(i).getCoordinateX(),
+                                    zoneTwo.get(i).getCoordinateY(),
                                     zoneTwo.get(i + 6).getCoordinateX(),
                                     zoneTwo.get(i + 6).getCoordinateY(),
                                     Color.YELLOW);
@@ -344,7 +344,7 @@ public class DrawLinesFromCords extends JComponent {
 
                     }
 
-                for (int i = 0; i < zoneThree.size()*0; i = i + 4) {
+                for (int i = 0; i < zoneThree.size(); i = i + 4) {
 
                     comp.addLine(
                             zoneThree.get(i).getCoordinateX(),
