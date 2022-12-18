@@ -1,0 +1,155 @@
+{
+  "BaseData": {
+    "ReportId": "G270917270146",
+    "UnitOfLength": "FEET",
+    "Address": "15 Harvard Way, Newbury, MA, 01951",
+    "Coordinates": "42.793271,-70.809292"
+  },
+  "Roofs": [
+    {
+      "Id": "L1",
+      "Type": "RIDGE",
+      "Points": [
+        {
+          "Id": "C1",
+          "CoordinateX": 1.17445,
+          "CoordinateY": 9.35658,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C2",
+          "CoordinateX": 4.697802960025147,
+          "CoordinateY": 37.42631535828113,
+          "CoordinateZ": 29.53795144
+        }
+      ]
+    },
+    {
+      "Id": "L2",
+      "Type": "RAKE",
+      "Points": [
+        {
+          "Id": "C2",
+          "CoordinateX": 4.697802960025147,
+          "CoordinateY": 37.42631535828113,
+          "CoordinateZ": 29.53795144
+        },
+        {
+          "Id": "C3",
+          "CoordinateX": 17.390205760058013,
+          "CoordinateY": 35.833147199004884,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L3",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C3",
+          "CoordinateX": 17.390205760058013,
+          "CoordinateY": 35.833147199004884,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C4",
+          "CoordinateX": 12.692402800032868,
+          "CoordinateY": -1.593168162330985,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L4",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C4",
+          "CoordinateX": 12.692402800032868,
+          "CoordinateY": -1.593168162330985,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C1",
+          "CoordinateX": 1.17445,
+          "CoordinateY": 9.35658,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L5",
+      "Type": "RAKE",
+      "Points": [
+        {
+          "Id": "C2",
+          "CoordinateX": 4.697802960025147,
+          "CoordinateY": 37.42631535828113,
+          "CoordinateZ": 29.53795144
+        },
+        {
+          "Id": "C5",
+          "CoordinateX": -7.994599840007722,
+          "CoordinateY": 39.01948351755738,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L6",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C5",
+          "CoordinateX": -7.994599840007722,
+          "CoordinateY": 39.01948351755738,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C6",
+          "CoordinateX": -12.692402800032868,
+          "CoordinateY": 1.593168159276247,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L7",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C6",
+          "CoordinateX": -12.692402800032868,
+          "CoordinateY": 1.593168159276247,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C1",
+          "CoordinateX": 1.17445,
+          "CoordinateY": 9.35658,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L8",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C6",
+          "CoordinateX": -12.692402800032868,
+          "CoordinateY": 1.593168159276247,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C4",
+          "CoordinateX": 12.692402800032868,
+          "CoordinateY": -1.593168162330985,
+          "CoordinateZ": 9.84
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,22 +1,25 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         ReadFromJSON data = new ReadFromJSON();
-        data.readPoints("./JSON_files/Data.json");
+        ArrayList<Edge> roof_edges = data.readPoints("./JSON_files/data2.json");
+        for (Edge e : roof_edges) {
+            System.out.println(e.toString());
+        }
+        ArrayList<Point> first_zone = new ArrayList<>();
+        ArrayList<Point> third_zone = new ArrayList<>();
 
-        RectangleCoordinates roof = new RectangleCoordinates();
-
-        roof.findCordinates("C6", "C5", "C1");
-        roof.findCordinates("C5", "C2", "C6");
-        roof.findCordinates("C2", "C1", "C5");
-        roof.findCordinates("C1", "C6", "C2");
-
-        roof.findCordinates("C1", "C2", "C4");
-        roof.findCordinates("C2", "C3", "C1");
-        roof.findCordinates("C3", "C4", "C2");
-        roof.findCordinates("C4", "C1", "C3");
-
-        roof.printZoneOne();
-        roof.printZoneTwo();
-        roof.printZoneThree();
+        CalcZones cz = new CalcZones();
+        cz.calc_zones(roof_edges,first_zone,third_zone);
+        System.out.println("\nFirst zone: ");
+        cz.print_zone(first_zone);
+        System.out.println("\nThird zone: ");
+        cz.print_zone(third_zone);
+        System.out.println();
     }
 }
+

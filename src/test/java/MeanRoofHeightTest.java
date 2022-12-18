@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MeanRoofHeightTest {
@@ -12,33 +14,33 @@ class MeanRoofHeightTest {
     }
 
     @Test
-    void meanHeightResultIsNotNegative() {
+    void meanHeightResultIsNotNegative(ArrayList<Edge> roofs) {
         var meanRoofHeight = new MeanRoofHeight();
-        assertTrue(meanRoofHeight.getMeanHeight() >= 0);
+        assertTrue(meanRoofHeight.getMeanHeight(roofs) >= 0);
     }
 
     @Test
-    void meanHeightResultIsCorrectlyCalculated() {
+    void meanHeightResultIsCorrectlyCalculated(ArrayList<Edge> roof_edges) {
         var meanRoofHeight = new MeanRoofHeight();
-        assertEquals(19.688975720000002, meanRoofHeight.getMeanHeight());
+        assertEquals(19.688975720000002, meanRoofHeight.getMeanHeight(roof_edges));
     }
 
     @Test
-    void shouldReturnHighestCoordinate() {
+    void shouldReturnHighestCoordinate(ArrayList<Edge> roof_edges) {
         var meanRoofHeight = new MeanRoofHeight();
-        assertEquals(29.53795144, meanRoofHeight.getHeighestZCoordinate());
+        assertEquals(29.53795144, meanRoofHeight.getHeighestZCoordinate(roof_edges));
 
     }
 
     @Test
-    void shouldReturnLowestCoordinate() {
+    void shouldReturnLowestCoordinate(ArrayList<Edge> roof_edges) {
         var meanRoofHeight = new MeanRoofHeight();
-        assertEquals(9.84, meanRoofHeight.getLowestZCoordinate());
+        assertEquals(9.84, meanRoofHeight.getLowestZCoordinate(roof_edges));
     }
 
     @Test
-    void windZoneWidthShouldBeHigherOrEqualTo3() {
+    void windZoneWidthShouldBeHigherOrEqualTo3(ArrayList<Edge> roof_edges) {
         var meanRoofHeight = new MeanRoofHeight();
-        assertTrue(meanRoofHeight.getWidthOfWindZone() >= 3.0);
+        assertTrue(meanRoofHeight.getWidthOfWindZone(roof_edges) >= 3.0);
     }
 }

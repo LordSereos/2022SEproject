@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class RectangleCoordinates {
-    private double x1, y1, z1, x2, y2, z2, ratio;
+    /*private double x1, y1, z1, x2, y2, z2, ratio;
     private MeanRoofHeight roofHeight = new MeanRoofHeight();
     private Point point = new Point();
 
@@ -22,7 +22,6 @@ public class RectangleCoordinates {
         this.x2 = x2;
         this.y2 = y2;
         this.z2 = z2;
-        this.ratio = roofHeight.getWidthOfWindZone() / point.calculateDistance(x1, y1, z1, x2, y2, z2);
     }
 
     public double borderCoordinateX() {
@@ -61,13 +60,7 @@ public class RectangleCoordinates {
         return z1 + (z2 - z1) * 2;
     }
 
-    public RectangleCoordinates borderCoordinateSet(String mainCoordinateName, String relativeCoordinateName) {
-        RectangleCoordinates t1 = new RectangleCoordinates(
-                data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ(),
-                data.getPointStorage().get(relativeCoordinateName).getCoordinateX(), data.getPointStorage().get(relativeCoordinateName).getCoordinateY(), data.getPointStorage().get(relativeCoordinateName).getCoordinateZ());
 
-        return t1;
-    }
 
     public RectangleCoordinates centerCoordinateSet(RectangleCoordinates borderCoordinateSet1, RectangleCoordinates borderCoordinateSet2) {
         RectangleCoordinates t3 = new RectangleCoordinates(
@@ -77,13 +70,7 @@ public class RectangleCoordinates {
         return t3;
     }
 
-    public RectangleCoordinates innerCoordinateSet(String mainCoordinateName, RectangleCoordinates centerCoordinateSet) {
-        RectangleCoordinates t4 = new RectangleCoordinates(
-                data.getPointStorage().get(mainCoordinateName).getCoordinateX(), data.getPointStorage().get(mainCoordinateName).getCoordinateY(), data.getPointStorage().get(mainCoordinateName).getCoordinateZ(),
-                centerCoordinateSet.centerOfBorderCoordinateX(), centerCoordinateSet.centerOfBorderCoordinateY(), centerCoordinateSet.centerOfBorderCoordinateZ());
 
-        return t4;
-    }
 
     private void putCoordinatesIntoZoneOne(String mainCoordinateName, RectangleCoordinates t4) {
         String zoneOnePointName = mainCoordinateName + "ZoneOne";
@@ -189,5 +176,5 @@ public class RectangleCoordinates {
         }
         System.out.println();
     }
-
+*/
 }

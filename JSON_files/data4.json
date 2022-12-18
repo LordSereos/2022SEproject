@@ -1,0 +1,334 @@
+{
+  "BaseData": {
+    "ReportId": "G270917270146",
+    "UnitOfLength": "FEET",
+    "Address": "15 Harvard Way, Newbury, MA, 01951",
+    "Coordinates": "42.793271,-70.809292"
+  },
+  "Roofs": [
+    {
+      "Id": "L1",
+      "Type": "RIDGE",
+      "Points": [
+        {
+          "Id": "C1",
+          "CoordinateX": -4.64068,
+          "CoordinateY": -36.9712,
+          "CoordinateZ": 29.5381
+        },
+        {
+          "Id": "C2",
+          "CoordinateX": 0.028562,
+          "CoordinateY": 0.227555,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L2",
+      "Type": "RIDGE",
+      "Points": [
+        {
+          "Id": "C2",
+          "CoordinateX": 0.028562,
+          "CoordinateY": 0.227555,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C3",
+          "CoordinateX": 4.6978,
+          "CoordinateY": 37.4263,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L3",
+      "Type": "RAKE",
+      "Points": [
+        {
+          "Id": "C3",
+          "CoordinateX": 4.6978,
+          "CoordinateY": 37.4263,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C4",
+          "CoordinateX": 17.3902,
+          "CoordinateY": 35.8331,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L4",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C4",
+          "CoordinateX": 17.3902,
+          "CoordinateY": 35.8331,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C5",
+          "CoordinateX": 4.9389,
+          "CoordinateY": -63.3636,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L5",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C5",
+          "CoordinateX": 4.9389,
+          "CoordinateY": -63.3636,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C1",
+          "CoordinateX": -4.64068,
+          "CoordinateY": -36.9712,
+          "CoordinateZ": 29.5381
+        }
+      ]
+    },
+    {
+      "Id": "L6",
+      "Type": "RAKE",
+      "Points": [
+        {
+          "Id": "C3",
+          "CoordinateX": 4.6978,
+          "CoordinateY": 37.4263,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C6",
+          "CoordinateX": -7.9946,
+          "CoordinateY": 39.0195,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L7",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C6",
+          "CoordinateX": -7.9946,
+          "CoordinateY": 39.0195,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C7",
+          "CoordinateX": -11.1074,
+          "CoordinateY": 14.2203,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L8",
+      "Type": "VALLEY",
+      "Points": [
+        {
+          "Id": "C7",
+          "CoordinateX": -11.1074,
+          "CoordinateY": 14.2203,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C2",
+          "CoordinateX": 0.028562,
+          "CoordinateY": 0.227555,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L9",
+      "Type": "RIDGE",
+      "Points": [
+        {
+          "Id": "C2",
+          "CoordinateX": 0.028562,
+          "CoordinateY": 0.227555,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C8",
+          "CoordinateX": -31.789,
+          "CoordinateY": 4.22134,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L10",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C8",
+          "CoordinateX": -31.789,
+          "CoordinateY": 4.22134,
+          "CoordinateZ": 29.538
+        },
+        {
+          "Id": "C9",
+          "CoordinateX": -42.925,
+          "CoordinateY": 18.2141,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L11",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C9",
+          "CoordinateX": -42.925,
+          "CoordinateY": 18.2141,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C7",
+          "CoordinateX": -11.1074,
+          "CoordinateY": 14.2203,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L12",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C9",
+          "CoordinateX": -42.925,
+          "CoordinateY": 18.2141,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C10",
+          "CoordinateX": -46.0378,
+          "CoordinateY": -6.58508,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L13",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C10",
+          "CoordinateX": -46.0378,
+          "CoordinateY": -6.58508,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C8",
+          "CoordinateX": -31.789,
+          "CoordinateY": 4.22134,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L14",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C10",
+          "CoordinateX": -46.0378,
+          "CoordinateY": -6.58508,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C11",
+          "CoordinateX": -14.2203,
+          "CoordinateY": -10.5789,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L15",
+      "Type": "VALLEY",
+      "Points": [
+        {
+          "Id": "C11",
+          "CoordinateX": -14.2203,
+          "CoordinateY": -10.5789,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C2",
+          "CoordinateX": 0.028562,
+          "CoordinateY": 0.227555,
+          "CoordinateZ": 29.538
+        }
+      ]
+    },
+    {
+      "Id": "L16",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C11",
+          "CoordinateX": -14.2203,
+          "CoordinateY": -10.5789,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C12",
+          "CoordinateX": -20.4459,
+          "CoordinateY": -60.1772,
+          "CoordinateZ": 9.84
+        }
+      ]
+    },
+    {
+      "Id": "L17",
+      "Type": "HIP",
+      "Points": [
+        {
+          "Id": "C12",
+          "CoordinateX": -20.4459,
+          "CoordinateY": -60.1772,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C1",
+          "CoordinateX": -4.64068,
+          "CoordinateY": -36.9712,
+          "CoordinateZ": 29.5381
+        }
+      ]
+    },
+    {
+      "Id": "L18",
+      "Type": "EAVE",
+      "Points": [
+        {
+          "Id": "C12",
+          "CoordinateX": -20.4459,
+          "CoordinateY": -60.1772,
+          "CoordinateZ": 9.84
+        },
+        {
+          "Id": "C5",
+          "CoordinateX": 4.9389,
+          "CoordinateY": -63.3636,
+          "CoordinateZ": 9.84
+        }
+      ]
+    }
+  ]
+}

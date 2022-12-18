@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
+
 import com.google.gson.annotations.SerializedName;
 
-public class Roof {
+public class Edge {
     @SerializedName("Id")
     private String id;
     @SerializedName("Type")
@@ -10,11 +11,11 @@ public class Roof {
     @SerializedName("Points")
     private ArrayList<Point> points;
 
-    public Roof() {
+    public Edge() {
 
     }
 
-    public Roof(String id, String type, ArrayList<Point> points) {
+    public Edge(String id, String type, ArrayList<Point> points) {
         this.id = id;
         this.type = type;
         this.points = points;
@@ -44,4 +45,12 @@ public class Roof {
         this.points = points;
     }
 
+    @Override
+    public String toString() {
+        return "Roof{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", points=" + points +
+                '}';
+    }
 }

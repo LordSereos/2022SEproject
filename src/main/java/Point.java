@@ -1,3 +1,4 @@
+
 import com.google.gson.annotations.SerializedName;
 
 public class Point {
@@ -59,8 +60,20 @@ public class Point {
         this.coordinateZ = coordinateZ;
     }
 
-    public double calculateDistance(double x1, double y1, double z1, double x2, double y2, double z2) {
-        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2) + Math.pow((z2 - z1), 2));
+
+    public double calculateDistance(Point p1) {
+        return Math.sqrt(Math.pow(p1.getCoordinateX(), 2) +
+                Math.pow(p1.getCoordinateY(), 2) +
+                Math.pow(p1.getCoordinateZ(), 2));
     }
 
+    @Override
+    public String toString() {
+        return "Points{" +
+                "id='" + id + '\'' +
+                 " " + coordinateX +
+                 ", " + coordinateY +
+                 ", " + coordinateZ +
+                '}';
+    }
 }

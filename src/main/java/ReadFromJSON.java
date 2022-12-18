@@ -1,32 +1,21 @@
+
 import com.google.gson.Gson;
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ReadFromJSON {
-    private static HashMap<String, Point> pointStorage = new HashMap<>();
-
-     void readPoints(String fileName) {
+     public ArrayList<Edge> readPoints(String fileName) {
          Gson gson = new Gson();
-
+         InputStructure data=new InputStructure();
          try (Reader reader = new FileReader(fileName)) {
-            InputStructure data = gson.fromJson(reader, InputStructure.class);
-            pointStorage = formatData(data);
+            data = gson.fromJson(reader, InputStructure.class);
          } catch (IOException e) {
             e.printStackTrace();
          }
-
-    }
-
-    public HashMap<String, Point> formatData(InputStructure data) {
-        HashMap<String, Point> points = new HashMap<>();
-        for (Roof i : data.getRoofs()){
-            for(Point j : i.getPoints())
-                points.put(j.getId(), new Point(j.getCoordinateX(), j.getCoordinateY(), j.getCoordinateZ()));
-        }
-        return points;
-    }
-
-    public HashMap<String, Point> getPointStorage() {
-        return this.pointStorage;
+         return data.getRoofs();
     }
 }
+
