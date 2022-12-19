@@ -46,7 +46,8 @@ public class FormatPdf {
         //Check if any images with png format were found and added to ArrayList
         if(imageFiles.size()<1) {
             System.out.println("No images with 'png' format were found in 'Images' directory");
-            return "No images with 'png' format were found in 'Images' directory";
+            return "No images with 'png' format were found in 'Images' directory\n" +
+                    "Are you sure that you have saved any images?";
         }
 
         Document document = new Document();
