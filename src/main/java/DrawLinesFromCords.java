@@ -121,7 +121,7 @@ public class DrawLinesFromCords extends JComponent {
         }
 
         for (Line2Draw line : Line2Draw) {
-            g2d.setStroke(new BasicStroke(3));
+            g2d.setStroke(new BasicStroke(4));
 
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); /*Anialiasing ON*/
 
@@ -324,23 +324,51 @@ public class DrawLinesFromCords extends JComponent {
 
                 }
                     for (int i = 0; i< zoneTwo.size(); i = i + 4) {
-                        if (i + 6 < zoneTwo.size()) {
+                        if(i!=12) {
+                            if (i + 6 < zoneTwo.size()) {
+                                comp.addLine(
+                                        zoneTwo.get(i).getCoordinateX(),
+                                        zoneTwo.get(i).getCoordinateY(),
+                                        zoneTwo.get(i + 6).getCoordinateX(),
+                                        zoneTwo.get(i + 6).getCoordinateY(),
+                                        Color.YELLOW);
+
+                            }
+                            if (i + 4 < zoneTwo.size())
+                                comp.addLine(
+                                        zoneTwo.get(i + 1).getCoordinateX(),
+                                        zoneTwo.get(i + 1).getCoordinateY(),
+                                        zoneTwo.get(i + 4).getCoordinateX(),
+                                        zoneTwo.get(i + 4).getCoordinateY(),
+                                        Color.YELLOW);
+                        }else
+                        {
                             comp.addLine(
                                     zoneTwo.get(i).getCoordinateX(),
                                     zoneTwo.get(i).getCoordinateY(),
-                                    zoneTwo.get(i + 6).getCoordinateX(),
-                                    zoneTwo.get(i + 6).getCoordinateY(),
+                                    zoneThree.get(i -10).getCoordinateX(),
+                                    zoneThree.get(i -10).getCoordinateY(),
                                     Color.YELLOW);
-
-                        }
-                        if (i + 4 < zoneTwo.size())
                             comp.addLine(
-                                    zoneTwo.get(i + 1).getCoordinateX(),
-                                    zoneTwo.get(i + 1).getCoordinateY(),
+                                    zoneTwo.get(i+1).getCoordinateX(),
+                                    zoneTwo.get(i+1).getCoordinateY(),
+                                    zoneThree.get(i -9).getCoordinateX(),
+                                    zoneThree.get(i -9).getCoordinateY(),
+                                    Color.YELLOW);
+                            comp.addLine(
+                                    zoneThree.get(i +17).getCoordinateX(),
+                                    zoneThree.get(i +17).getCoordinateY(),
                                     zoneTwo.get(i + 4).getCoordinateX(),
                                     zoneTwo.get(i + 4).getCoordinateY(),
                                     Color.YELLOW);
+                            comp.addLine(
+                                    zoneTwo.get(i + 6).getCoordinateX(),
+                                    zoneTwo.get(i + 6).getCoordinateY(),
+                                    zoneThree.get(i +19).getCoordinateX(),
+                                    zoneThree.get(i +19).getCoordinateY(),
+                                    Color.YELLOW);
 
+                        }
 
                     }
 
