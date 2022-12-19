@@ -1,6 +1,6 @@
 # 2022SEproject
+REQUIREMENTS:
 
-Please add files to an according branch:
-1) Coding files and additional features for your software are expected to be in your team number branch.
-2) Requirements Specification document for each team should be in requirements-specification branch.
-3) Mini-reports should be uploaded in mini-reports branch.
+1) The innitial .xml file has to be named "data.xml"
+2) If you want several different pdfs to be created, 
+   delete the images that have been generated previously.
