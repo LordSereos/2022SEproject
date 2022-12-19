@@ -507,11 +507,13 @@ public class DrawLinesFromCords extends JComponent {
         });
 
         FormatPdf formatPdf = new FormatPdf();
-
+        final String[] dialogMessage = {new String()};
         formatPdfButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                formatPdf.PrintPdf();
+                dialogMessage[0] = formatPdf.PrintPdf();
+                JOptionPane.showMessageDialog(frame, dialogMessage[0], "Info",
+                        JOptionPane.PLAIN_MESSAGE);
             }
         });
 
