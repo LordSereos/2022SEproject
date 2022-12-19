@@ -71,9 +71,9 @@ public class Point {
     public String toString() {
         return "Points{" +
                 "id='" + id + '\'' +
-                 " " + coordinateX +
-                 ", " + coordinateY +
-                 ", " + coordinateZ +
+                " " + coordinateX +
+                ", " + coordinateY +
+                ", " + coordinateZ +
                 '}';
     }
 }

@@ -8,7 +8,7 @@ public class MeanRoofHeight {
     public double getHeighestZCoordinate(ArrayList<Edge> roofs) {
         double heighest = 0;
         for (Edge value : roofs) {
-            for(Point p:value.getPoints())
+            for (Point p : value.getPoints())
                 if (p.getCoordinateZ() > heighest)
                     heighest = p.getCoordinateZ();
         }
@@ -18,9 +18,9 @@ public class MeanRoofHeight {
     public double getLowestZCoordinate(ArrayList<Edge> roofs) {
         double lowest = getHeighestZCoordinate(roofs);
         for (Edge value : roofs) {
-            for(Point p:value.getPoints())
+            for (Point p : value.getPoints())
                 if (p.getCoordinateZ() < lowest)
-                   lowest = p.getCoordinateZ();
+                    lowest = p.getCoordinateZ();
         }
         return lowest;
     }

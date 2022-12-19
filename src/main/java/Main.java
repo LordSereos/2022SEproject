@@ -14,7 +14,7 @@ public class Main {
         ArrayList<Point> third_zone = new ArrayList<>();
 
         CalcZones cz = new CalcZones();
-        cz.calc_zones(roof_edges,first_zone,third_zone);
+        cz.calc_zones(roof_edges, first_zone, third_zone);
         System.out.println("\nFirst zone: ");
         cz.print_zone(first_zone);
         System.out.println("\nThird zone: ");
@@ -22,4 +22,3 @@ public class Main {
         System.out.println();
     }
 }
-
